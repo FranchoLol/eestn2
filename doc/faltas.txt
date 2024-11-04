@@ -1,0 +1,30 @@
+dias de faltas:
+
+- 1 de falta = "A"
+- 1/2 de falta = "T"
+- todos los otros dias van en "P"
+
+
+marzo:
+7 - 1/2 de falta
+12 - 1 de falta
+
+Abril:
+24 - 1 de falta
+25 - 1 de falta
+
+mayo:
+6 - 1/2 de falta
+15 - 1/2 de falta
+17 - 1 de falta
+30 - 1 de falta
+
+junio:
+4 - 1/2 de falta
+6 - 1 de falta
+
+julio:
+
+agosto:
+
+septiembre - octubre  y noviembre, nada ya que no estamos en estas fechas

@@ -1,0 +1,293 @@
+<section class="materias-notas-section">
+            <h2 class="tituloMaterias">Materias y Notas</h2>
+            <table class="materias-notas-table">
+                <thead>
+                    <tr>
+                        <th>Materias</th>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Geografía: 3 evaluaciones -->
+                    <tr>
+                        <td rowspan="3">Geografía</td>
+                        <td>02/09/2024</td>
+                        <td>Examen sobre Continentes</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>10/09/2024</td>
+                        <td>Tarea sobre Climas</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>20/09/2024</td>
+                        <td>Oral sobre Recursos Naturales</td>
+                        <td>9</td>
+                    </tr>
+            
+                    <!-- Análisis Matemático: 5 evaluaciones -->
+                    <tr>
+                        <td rowspan="5">Análisis Matemático</td>
+                        <td>05/09/2024</td>
+                        <td>Trabajo Práctico - Límites</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>15/09/2024</td>
+                        <td>Examen - Derivadas</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>22/09/2024</td>
+                        <td>Tarea - Integrales</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>01/10/2024</td>
+                        <td>Trabajo Práctico - Series</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>10/10/2024</td>
+                        <td>Examen Final</td>
+                        <td>9</td>
+                    </tr>
+            
+                    <!-- Sistemas Digitales: 2 evaluaciones -->
+                    <tr>
+                        <td rowspan="2">Sistemas Digitales</td>
+                        <td>10/09/2024</td>
+                        <td>Tarea - Circuitos Combinacionales</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>20/09/2024</td>
+                        <td>Examen - Lógica Secuencial</td>
+                        <td>8</td>
+                    </tr>
+            
+                    <!-- Base de Datos: 4 evaluaciones -->
+                    <tr>
+                        <td rowspan="4">Base de Datos</td>
+                        <td>05/09/2024</td>
+                        <td>Tarea - Normalización</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>15/09/2024</td>
+                        <td>Examen - SQL Avanzado</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>25/09/2024</td>
+                        <td>Trabajo Práctico - Diseño de Bases</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>05/10/2024</td>
+                        <td>Examen Final</td>
+                        <td>8</td>
+                    </tr>
+            
+                    <!-- Inglés: 1 evaluación -->
+                    <tr>
+                        <td>Inglés</td>
+                        <td>12/09/2024</td>
+                        <td>Examen Oral - Present Perfect</td>
+                        <td>7</td>
+                    </tr>
+            
+                    <!-- Política y Ciudadanía: sin evaluaciones -->
+                    <tr>
+                        <td>Política y Ciudadanía</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+            
+                    <!-- Historia: 3 evaluaciones -->
+                    <tr>
+                        <td rowspan="3">Historia</td>
+                        <td>08/09/2024</td>
+                        <td>Tarea - Revolución Francesa</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>18/09/2024</td>
+                        <td>Examen - Guerra Fría</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>28/09/2024</td>
+                        <td>Oral - Segunda Guerra Mundial</td>
+                        <td>9</td>
+                    </tr>
+            
+                    <!-- Literatura: sin evaluaciones -->
+                    <tr>
+                        <td>Literatura</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+            
+                    <!-- Modelos y Sistemas: 2 evaluaciones -->
+                    <tr>
+                        <td rowspan="2">Modelos y Sistemas</td>
+                        <td>12/09/2024</td>
+                        <td>Tarea - Modelos de Negocio</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>22/09/2024</td>
+                        <td>Examen - Análisis de Sistemas</td>
+                        <td>7</td>
+                    </tr>
+            
+                    <!-- Educación Física: 1 evaluación -->
+                    <tr>
+                        <td>Educación Física</td>
+                        <td>15/09/2024</td>
+                        <td>Trabajo Práctico - Nutrición Deportiva</td>
+                        <td>8</td>
+                    </tr>
+            
+                    <!-- Laboratorio de Redes: sin evaluaciones -->
+                    <tr>
+                        <td>Laboratorio de Redes</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+            
+                    <!-- Laboratorio de Diseño Web: sin evaluaciones -->
+                    <tr>
+                        <td>Laboratorio de Diseño Web</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+            
+                    <!-- Laboratorio de Programación: 1 evaluación -->
+                    <tr>
+                        <td>Laboratorio de Programación</td>
+                        <td>18/09/2024</td>
+                        <td>Tarea - Programación en C++</td>
+                        <td>7</td>
+                    </tr>
+            
+                    <!-- Laboratorio de Base de Datos: 2 evaluaciones -->
+                    <tr>
+                        <td rowspan="2">Laboratorio de Base de Datos</td>
+                        <td>08/09/2024</td>
+                        <td>Trabajo Práctico - Modelado de Datos</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>28/09/2024</td>
+                        <td>Examen - Consultas SQL</td>
+                        <td>9</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="tituloMaterias">Boletin Digital</h2>
+            <table class="materias-notas-table">
+                <thead>
+                    <tr>
+                        <th>Materias</th>
+                        <th>1er Cuatrimestre</th>
+                        <th>2do Cuatrimestre</th>
+                        <th>Final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Geografía</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Análisis Matemático</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Sistemas Digitales</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Base de Datos</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Inglés</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Política y Ciudadanía</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Historia</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Literatura</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Modelos y Sistemas</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Educación Física</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Redes</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Diseño Web</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Programación</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Base de Datos</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>

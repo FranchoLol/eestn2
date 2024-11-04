@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias del usuario - E.E.S.T. N°2</title>
+    <link rel="icon" href="../img/l.png" type="image/png">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+</head>
+<body>
+    <header id="menuHeader">
+        <div class="index">
+            <div class="userProfile">
+                <img src="../img/perfiles/CatNegativ.jpg" class="profileImage" alt="Usuario">
+                <h1 class="userName">Capria Franco</h1>
+            </div>
+            <nav class="navHeader">
+                <ul>
+                    <li><a href="userMenu.html"><img src="../img/utilidades/casaLight.png" alt="inicioIMG" class="iconsHeader"> Inicio</a></li>
+                    <li><a href="userAsistencia.html"><img src="../img/utilidades/calendarioLight.png" alt="asistenciaIMG" class="iconsHeader"> Asistencias</a></li>
+                    <li><a href="userBiblioteca.html"><img src="../img/utilidades/bibliotecaLight.png" alt="bibliotecaIMG" class="iconsHeader"> Biblioteca</a></li>
+                </ul>
+            </nav>
+            <div class="confHeader">
+                <button class="btnExit" id="btnExit"><img src="../img/utilidades/cerrarSesionLight.png" alt="exitIMG" class="iconsHeader"> Salir</button>
+            </div>
+        </div>
+        <label class="btnMenuHeader" for="ckbMenuHeader">
+            <input type="checkbox" id="ckbMenuHeader">
+            <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
+        </label>
+    </header>
+    <main class="mainMateriasAlum">
+        <section class="seccionAccesosMaterias">
+            <h2>Accesos al contenido</h2>
+            <div class="accesoPart1 accesoPart1Materias">
+                <button class="btnsAccesos" id="seccionBoletinCel"><img src="../img/utilidades/boletinLight.png" alt="boletin" class="iconsAcceso"> Boletin virtual</button>
+                <button class="btnsAccesos" id="seccionMateriasCel"><img src="../img/utilidades/materiasYnotasLight.png" alt="materias" class="iconsAcceso"> Materias y Notas</button>
+            </div>
+        </section>
+        <section class="seccionMaterias">
+            <h2>Materias y Notas
+                <span class="cerrarSeccion" id="cerrarMaerias">✖</span>
+            </h2>
+            <nav>
+                <p>Notas por materia del ciclo escolar 2024</p>
+                <select name="filtroMateria" id="filtroMateria">
+                    <option value="todos" selected>Todas las Materias</option>
+                    <option value="geografia">Geografía</option>
+                    <option value="analisis-matematico">Análisis Matemático</option>
+                    <option value="sistemas-digitales">Sistemas Digitales</option>
+                    <option value="base-de-datos">Base de Datos</option>
+                    <option value="ingles">Inglés</option>
+                    <option value="politica-y-ciudadania">Política y Ciudadanía</option>
+                    <option value="historia">Historia</option>
+                    <option value="literatura">Literatura</option>
+                    <option value="modelos-y-sistemas">Modelos y Sistemas</option>
+                    <option value="educacion-fisica">Educación Física</option>
+                    <option value="laboratorio-de-redes">Laboratorio de Redes</option>
+                    <option value="laboratorio-de-diseno-web">Laboratorio de Diseño Web</option>
+                    <option value="laboratorio-de-programacion">Laboratorio de Programación</option>
+                    <option value="laboratorio-de-base-de-datos">Laboratorio de Base de Datos</option>
+                </select>
+            </nav>
+            <div class="tablaMateriasScroll">
+                <table class="tablaMaterias">
+                    <thead>
+                        <tr>
+                            <th scope="col">Materias</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materia-geografia">
+                        <tr>
+                            <td rowspan="3" class="nombreMateria">Geografía</td>
+                            <td>02/09/2024</td>
+                            <td>Examen sobre Continentes</td>
+                            <td>8</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>10/09/2024</td>
+                            <td>Tarea sobre Climas</td>
+                            <td>7</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>20/09/2024</td>
+                            <td>Oral sobre Recursos Naturales</td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-analisis-matematico">
+                        <tr>
+                            <td rowspan="5" class="nombreMateria">Análisis Matemático</td>
+                            <td>05/09/2024</td>
+                            <td>Trabajo Práctico - Límites</td>
+                            <td>9</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>15/09/2024</td>
+                            <td>Examen - Derivadas</td>
+                            <td>8</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>22/09/2024</td>
+                            <td>Tarea - Integrales</td>
+                            <td>7</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>01/10/2024</td>
+                            <td>Trabajo Práctico - Series</td>
+                            <td>8</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>10/10/2024</td>
+                            <td>Examen Final</td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-sistemas-digitales">
+                        <tr>
+                            <td rowspan="2" class="nombreMateria">Sistemas Digitales</td>
+                            <td>10/09/2024</td>
+                            <td>Tarea - Circuitos Combinacionales</td>
+                            <td>7</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>20/09/2024</td>
+                            <td>Examen - Lógica Secuencial</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-base-de-datos">
+                        <tr>
+                            <td rowspan="4" class="nombreMateria">Base de Datos</td>
+                            <td>05/09/2024</td>
+                            <td>Tarea - Normalización</td>
+                            <td>8</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>15/09/2024</td>
+                            <td>Examen - SQL Avanzado</td>
+                            <td>9</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>25/09/2024</td>
+                            <td>Trabajo Práctico - Diseño de Bases</td>
+                            <td>7</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>05/10/2024</td>
+                            <td>Examen Final</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-ingles">
+                        <tr>
+                            <td>Inglés</td>
+                            <td>12/09/2024</td>
+                            <td>Examen Oral - Present Perfect</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-politica-y-ciudadania">
+                        <tr>
+                            <td>Política y Ciudadanía</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-historia">
+                        <tr>
+                            <td rowspan="3" class="nombreMateria">Historia</td>
+                            <td>08/09/2024</td>
+                            <td>Tarea - Revolución Francesa</td>
+                            <td>6</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>18/09/2024</td>
+                            <td>Examen - Guerra Fría</td>
+                            <td>8</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>28/09/2024</td>
+                            <td>Oral - Segunda Guerra Mundial</td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-literatura">
+                        <tr>
+                            <td>Literatura</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-modelos-y-sistemas">
+                        <tr>
+                            <td rowspan="2" class="nombreMateria">Modelos y Sistemas</td>
+                            <td>12/09/2024</td>
+                            <td>Tarea - Modelos de Negocio</td>
+                            <td>9</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>22/09/2024</td>
+                            <td>Examen - Análisis de Sistemas</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-educacion-fisica">
+                        <tr>
+                            <td>Educación Física</td>
+                            <td>15/09/2024</td>
+                            <td>Trabajo Práctico - Nutrición Deportiva</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-laboratorio-de-redes">
+                        <tr>
+                            <td>Laboratorio de Redes</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-laboratorio-de-diseno-web">
+                        <tr>
+                            <td>Laboratorio de Diseño Web</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-laboratorio-de-programacion">
+                        <tr>
+                            <td>Laboratorio de Programación</td>
+                            <td>18/09/2024</td>
+                            <td>Tarea - Programación en C++</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                    <tbody id="materia-laboratorio-de-base-de-datos">
+                        <tr>
+                            <td rowspan="2" class="nombreMateria">Laboratorio de Base de Datos</td>
+                            <td>08/09/2024</td>
+                            <td>Trabajo Práctico - Modelado de Datos</td>
+                            <td>8</td>
+                        </tr>
+                        <tr class="notasExtras">
+                            <td>28/09/2024</td>
+                            <td>Examen - Consultas SQL</td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="seccionBoletin">
+            <h2>Boletin Digital
+                <span class="cerrarSeccion" id="cerrarBoletin">✖</span>
+            </h2>
+            <table class="tablaBoletin">
+                <thead>
+                    <tr>
+                        <th>Materias</th>
+                        <th>1<sup>er</sup> <span class="boletinCuatri">Cuatrimestre</span></th>
+                        <th>2<sup>do</sup> <span class="boletinCuatri">Cuatrimestre</span></th>
+                        <th><span class="boletinFinal">Final</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Geografía</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Análisis Matemático</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Sistemas Digitales</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Base de Datos</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Inglés</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Política y Ciudadanía</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Historia</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Literatura</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Modelos y Sistemas</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Educación Física</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Redes</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Diseño Web</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Programación</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorio de Base de Datos</td>
+                        <td>tea</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="../scripts/Header.js"></script>
+    <script src="../scripts/userMaterias.js"></script>
+</body>
+</html>

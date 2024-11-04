@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia del usuario - E.E.S.T. N°2</title>
+    <link rel="icon" href="../img/l.png" type="image/png">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+</head>
+<body>
+    <header id="menuHeader">
+        <div class="index">
+            <div class="userProfile">
+                <img src="../img/perfiles/CatNegativ.jpg" class="profileImage" alt="Usuario">
+                <h1 class="userName">Capria Franco</h1>
+            </div>
+            <nav class="navHeader">
+                <ul>
+                    <li><a href="userMenu.html"><img src="../img/utilidades/casaLight.png" alt="inicioIMG" class="iconsHeader"> Inicio</a></li>
+                    <li><a href="userMaterias.html"><img src="../img/utilidades/libroLight.png" alt="MateriasIMG" class="iconsHeader"> Materias</a></li>
+                    <li><a href="userBiblioteca.html"><img src="../img/utilidades/bibliotecaLight.png" alt="bibliotecaIMG" class="iconsHeader"> Biblioteca</a></li>
+                </ul>
+            </nav>
+            <div class="confHeader">
+                <button class="btnExit" id="btnExit"><img src="../img/utilidades/cerrarSesionLight.png" alt="exitIMG" class="iconsHeader"> Salir</button>
+            </div>
+        </div>
+        <label class="btnMenuHeader" for="ckbMenuHeader">
+            <input type="checkbox" id="ckbMenuHeader">
+            <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
+        </label>
+    </header>
+    <main class="mainDeAsistencia">
+        <section class="seccionAsistencias">
+            <h2>Resumen de Asistencia</h2>
+            <div class="tablaAsistenciasScroll">
+                <table class="tablaAsistencias">
+                    <thead>
+                        <tr>
+                            <th class="mes">Mes</th>
+                            <th class="mes">Marzo</th>
+                            <th class="mes">Abril</th>
+                            <th class="mes">Mayo</th>
+                            <th class="mes">Junio</th>
+                            <th class="mes">Julio</th>
+                            <th class="mes">Agosto</th>
+                            <th class="mes">Septiembre</th>
+                            <th class="mes">Octubre</th>
+                            <th class="mes">Noviembre</th>
+                            <th class="mes">Diciembre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Taller</td>
+                            <td><sup>1/2</sup></td>
+                            <td><sup>1/2</sup></td>
+                            <td>0</td>
+                            <td><sup>1/2</sup></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Teorico</td>
+                            <td>1</td>
+                            <td>1<sup>1/2</sup></td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Educación fisica</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Faltas</td>
+                            <td>1<sup>1/2</sup></td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>1<sup>1/2</sup></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr class="tablaAsistenciasTotales">
+                            <td>Totales</td>
+                            <td class="tablaAsistenciasTotalesInvisible" colspan="9"></td>
+                            <td class="tablaAsistenciasTotalesContador">8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>           
+        </section>
+        <section class="secionDesglose">
+            <h2>Desglose de Ausencias</h2>
+            <p class="textoDesglose">Es el día específico en que el estudiante estuvo ausente (no incluye llegadas tarde). Este desglose se visualiza si la ausencia está justificada por un certificado médico, día de paro u otra razón.</p>
+            <div class="tablaDesgloseScroll">
+                <table class="tablaDesglose">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Justificación</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12/03/2024</td>
+                            <td>Justificada</td>
+                            <td>Enfermedad</td>
+                        </tr>
+                        <tr>
+                            <td>24/04/2024</td>
+                            <td>Justificada</td>
+                            <td>Enfermedad</td>
+                        </tr>
+                        <tr>
+                            <td>25/04/2024</td>
+                            <td>Justificada</td>
+                            <td>Enfermedad</td>
+                        </tr>
+                        <tr>
+                            <td>17/05/2024</td>
+                            <td class="tablaDesgloseInvisible"></td>
+                            <td class="tablaDesgloseInvisible"></td>
+                        </tr>
+                        <tr>
+                            <td>30/05/2024</td>
+                            <td class="tablaDesgloseInvisible"></td>
+                            <td class="tablaDesgloseInvisible"></td>
+                        </tr>
+                        <tr>
+                            <td>06/06/2024</td>
+                            <td class="tablaDesgloseInvisible"></td>
+                            <td class="tablaDesgloseInvisible"></td>
+                        </tr>
+                    </tbody>
+                </table>   
+            </div>
+        </section>
+        <div class="infoAsistencias">
+            <p>Puede ver las asistencias en el <a href="userMenu.html">calendario</a></p>
+            <table class="tablaInfo">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="tablaInfoPresenteEsferico"></div>
+                            <div class="tablaInfoPresenteEsfericoSec"></div>
+                            <span class="tablaInfoPresente">Presente</span>
+                        </th>
+                        <th>
+                            <div class="tablaInfoTardeEsferico"></div>
+                            <div class="tablaInfoTardeEsfericoSec"></div>
+                            <span class="tablaInfoTarde">Tarde</span>
+                        </th>
+                        <th>
+                            <div class="tablaInfoAusenteEsferico"></div>
+                            <div class="tablaInfoAusenteEsfericoSec"></div>
+                            <span class="tablaInfoAusente">Ausente</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3"><img src="../img/datos/calendarioInfo.png" alt="metadatos" class="infoAsistenciasIMG"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><img src="../img/datos/calendarioDoble.png" alt="metadatos" class="infoAsistenciasIMG"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><img src="../img/datos/calendario.png" alt="metadatos" class="infoAsistenciasIMG"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="../scripts/Header.js"></script>
+    <script src="../scripts/userAsistencia.js"></script>
+</body>
+</html>

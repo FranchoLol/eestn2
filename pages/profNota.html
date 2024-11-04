@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias -  Profesor - M. Ferrando - E.E.S.T. N°2</title>
+    <link rel="icon" href="../img/l.png" type="image/png">
+    <link rel="stylesheet" href="../styles/web/styleProf.css" type="text/css">
+</head>
+<body>
+    <header id="menuHeader">
+        <div class="index">
+            <div class="userProfile">
+                <img src="../img/perfiles/FerrandoMatias.jpg" class="profileImage" alt="Usuario">
+                <h1 class="userName">Matias Ferrando</h1>
+            </div>
+            <nav class="navHeader">
+                <ul>
+                    <li><a href="menuProfe.html"><img src="../img/utilidades/casa.png" alt="inicioIMG" class="iconsHeader"> Inicio</a></li>
+                    <li><a href="notasProfes.html"><img src="../img/utilidades/libro.png" alt="MateriasIMG" class="iconsHeader"> Notas</a></li>
+                    <!--<li><a href="asistenciaProfe.html">Asistencia</a></li>
+                    <li><a href=""></a></li>-->
+                </ul>
+            </nav>
+            <div class="confHeader">
+                <button class="btnExit" id="btnExit">Salir</button>
+            </div>
+        </div>
+        <label class="btnMenuHeader" for="ckbMenuHeader">
+            <input type="checkbox" id="ckbMenuHeader">
+            <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
+        </label>
+    </header>
+    <main>
+        <section class="full-screen-section initial-section">
+            <div class="course-selection">
+                <div class="course-selection-container">
+                    <div class="course-select-wrapper">
+                        <select id="courseSelect" aria-label="Seleccionar Curso">
+                            <option value="" disabled selected>Seleccionar Curso</option>
+                            <option value="5to 1ra">5<sup>to</sup> 1<sup>ra</sup></option>
+                            <option value="5to 2da">5<sup>to</sup> 2<sup>da</sup></option>
+                            <option value="6to 1ra">6<sup>to</sup> 1<sup>ra</sup></option>
+                            <option value="6to 2da">6<sup>to</sup> 2<sup>da</sup></option>
+                            <option value="7mo 1ra">7<sup>mo</sup> 1<sup>ra</sup></option>
+                            <option value="7mo 2da">7<sup>mo</sup> 2<sup>da</sup></option>
+                        </select>
+                    </div>
+                    <button id="enterBtn" disabled>Entrar</button>
+                </div>
+            </div>
+        </section>
+        <section class="main-content hidden">
+            <div class="students">
+                <h2>Alumnos</h2>
+                <div class="seperador"></div>
+                <div class="studentList" id="studentList">
+                    <button class="student-btn">Capria Franco</button>
+                    <button class="student-btn">Ana Mia Arce</button>
+                    <button class="student-btn">Aaron Fariaz</button>
+                    <button class="student-btn">Videla Tomas</button>
+                    <button class="student-btn">Barrios Rios</button>
+                    <button class="student-btn">Mansilla Bruno</button>
+                    <button class="student-btn">Cabarcos Florencia</button>
+                    <button class="student-btn">Payaslian Ochoa</button>
+                    <button class="student-btn">Fernandez Alexis</button>
+                    <button class="student-btn">Castaño Nazareno</button>
+                    <button class="student-btn">Ceijas Valentin</button>
+                    <button class="student-btn">Zambianchi Thiago</button>
+                    <button class="student-btn">Zacarias Bruno</button>
+                    <button class="student-btn">Francisico Juarez</button>
+                    <button class="student-btn">Sacarias Lusiano</button>
+                    <button class="student-btn">Arenales Matias</button>
+                    <button class="student-btn">Rivarola Ignacio</button>
+                    <button class="student-btn">Aispuru Nehuen</button>
+                    <button class="student-btn">Riscal Santiago</button>
+                    <button class="student-btn">Fernandez Santiago</button>
+                    <button class="student-btn">Araujo Santino</button>
+                    <button class="student-btn">Salas Teo</button>
+                    <button class="student-btn">Cespedes Trinidad</button>
+                </div>
+                <div class="seperador"></div>
+                <div class="student-controls">
+                    <button id="addStudent">Nuevo alum.</button>
+                    <button id="removeStudent">Quitar alum.</button>
+                </div>
+            </div>
+            <div class="notes">
+                <div class="notesContainerSub" id="notesContainer">
+                    <h2 id="studentNameTitle">NombreAlumnSelect</h2>
+                    <div class="notesAll">
+                        <div class="note-options">
+                            <button class="btnNotes" id="optionsBtn">Opciones</button>
+                            <span id="selectedOption"></span>
+                        </div>
+                        <div class="note-grade">
+                            <button class="btnNotes" id="gradeBtn">Nota</button>
+                            <span id="selectedGrade"></span>
+                        </div>
+                        <button class="btnNotes" id="uploadBtn">Subir</button>
+                    </div>
+                </div>
+            </div>
+            <div class="subjects">
+                <div class="subjectCurso">
+                    <h2>Curso</h2>
+                    <select id="courseSelect" aria-label="Seleccionar Curso">
+                        <option value="" disabled>Seleccionar Curso</option>
+                        <option value="5to 1ra">5<sup>to</sup> 1<sup>ra</sup></option>
+                        <option value="5to 2da" selected>5<sup>to</sup> 2<sup>da</sup></option>
+                        <option value="6to 1ra">6<sup>to</sup> 1<sup>ra</sup></option>
+                        <option value="6to 2da">6<sup>to</sup> 2<sup>da</sup></option>
+                        <option value="7mo 1ra">7<sup>mo</sup> 1<sup>ra</sup></option>
+                        <option value="7mo 2da">7<sup>mo</sup> 2<sup>da</sup></option>
+                    </select>
+                </div>
+                <div class="subjectMateria">
+                    <h2>Materias</h2>
+                    <select id="courseSelect" aria-label="Seleccionar Curso">
+                        <option value="" disabled>Seleccionar Materia</option>
+                        <option value="Modelos y Sistemas">Modelos y Sistemas</option>
+                        <option value="Sistemas de Gestión y Autogestión">Sistemas de Gestión y Autogestión</option>
+                        <option value="Seguridad Informático">Seguridad Informático</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <div id="studentModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Agregar Nuevo Alumno</h2>
+                <input type="text" id="studentNameInput" placeholder="Nombre del alumno">
+                <button id="confirmAddStudent">Agregar</button>
+            </div>
+        </div>
+        <!-- Modal para Confirmación de Eliminación -->
+        <div id="confirmDeleteModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeConfirmDeleteModal">&times;</span>
+                <h2>Confirmar Eliminación</h2>
+                <p>¿Está seguro de que desea eliminar al alumno seleccionado?</p>
+                <div class="modal-footer">
+                    <button id="cancelDeleteBtn" class="modal-btn">No</button>
+                    <button id="confirmDeleteBtn" class="modal-btn">Sí</button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para Opciones -->
+        <div id="optionsModal" class="modal modal-options">
+            <div class="modal-content">
+                <span class="close close-options-modal">&times;</span>
+                <h2>Seleccione una opción</h2>
+                <div class="modal-body">
+                    <button class="option-btn">Materia</button>
+                    <button class="option-btn">Examen escrito</button>
+                    <button class="option-btn">Examen oral</button>
+                    <button class="option-btn">Exposición Individual</button>
+                    <button class="option-btn">Exposición grupal</button>
+                    <button class="option-btn">TP</button>
+                    <button class="option-btn">Tarea/Actividad</button>
+                    <button class="option-btn">Asistencia</button>
+                    <button class="option-btn">Conducta</button>
+                    <button class="option-btn">Otro</button>
+                    <div id="otherOptionContainer" class="hidden other-option-container">
+                        <input type="text" id="otherOptionInput" placeholder="Especifique">
+                        <button id="regresarOptionsBtn" class="modal-btn">Regresar</button>
+                        <button id="aceptarOptionsBtn" class="modal-btn">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para Notas -->
+        <div id="gradeModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeGradeModal">&times;</span>
+                <h2>Seleccione una Nota</h2>
+                <div class="modal-body">
+                    <div class="grade-section">
+                        <h3>Notas conceptuales:</h3>
+                        <button class="grade-btn" data-grade="tep">TEP</button>
+                        <button class="grade-btn" data-grade="ted">TED</button>
+                        <button class="grade-btn" data-grade="tea">TEA</button>
+                    </div>
+                    <div class="grade-section">
+                        <h3>Notas numéricas:</h3>
+                        <input type="number" id="numericGradeInput" min="1" max="10" step="0.1" placeholder="Ingrese una nota" />
+                    </div>
+                    <div class="grade-actions">
+                        <button id="regresarGradeBtn" class="modal-btn">Regresar</button>
+                        <button id="aceptarGradeBtn" class="modal-btn">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>  
+    <script src="../scripts/profeMenu.js"></script>
+    <script src="../scripts/Header.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario - E.E.S.T. N°2</title>
+    <link rel="icon" href="../img/l.png" type="image/png">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+<body>
+    <header id="menuHeader">
+        <div class="index">
+            <div class="userProfile">
+                <img src="../img/perfiles/CatNegativ.jpg" class="profileImage" alt="Usuario">
+                <h1 class="userName">Capria Franco</h1>
+            </div>
+            <nav class="navHeader">
+                <ul>
+                    <li><a href="userMaterias.html"><img src="../img/utilidades/libroLight.png" alt="MateriasIMG" class="iconsHeader"> Materias</a></li>
+                    <li><a href="userAsistencia.html"><img src="../img/utilidades/calendarioLight.png" alt="asistenciaIMG" class="iconsHeader"> Asistencias</a></li>
+                    <li><a href="userBiblioteca.html"><img src="../img/utilidades/bibliotecaLight.png" alt="bibliotecaIMG" class="iconsHeader"> Biblioteca</a></li>
+                </ul>
+            </nav>
+            <div class="confHeader">
+                <button class="btnExit" id="btnExit"><img src="../img/utilidades/cerrarSesionLight.png" alt="exitIMG" class="iconsHeader"> Salir</button>
+            </div>
+        </div>
+        <label class="btnMenuHeader" for="ckbMenuHeader">
+            <input type="checkbox" id="ckbMenuHeader">
+            <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
+        </label>
+    </header>
+    <main>
+        <section class="seccionAccesosInicio">
+            <h2>Accesos al contenido</h2>
+            <div class="accesoPart1">
+                <button class="btnsAccesos" id="seccionNotificacionesCel"><img src="../img/utilidades/notificacionLight.png" alt="Notificaciones" class="iconsAcceso"> Notificaciones</button>
+                <button class="btnsAccesos" id="seccionCalendarioCel"><img src="../img/utilidades/calendarioLight.png" alt="Notificaciones" class="iconsAcceso"> Calendario</button>
+            </div>
+        </section>
+        <section class="seccionNotificaciones">
+            <h2>Notificaciones
+                <span class="cerrarSeccion" id="cerrarNotificaciones">✖</span>
+            </h2>
+            <details>
+                <summary>Filtros</summary>
+                <table class="filtroNotificaciones">
+                    <tr>
+                        <td class="filtroTextoNotificacion">Rol:</td>
+                        <td class="filtroSeleccionNotificacion">
+                            <select class="filtroRolNotificaciones" id="roleFilter">
+                                <option value="Todos">Todos</option>
+                                <option value="Preceptor">Preceptores</option>
+                                <option value="Profesor">Profesores</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="filtroTextoChicoNotificaciones" colspan="2">ㅤ</td>
+                    </tr>
+                    <tr>
+                        <td class="filtroTextoNotificacion">Nombre:</td>
+                        <td class="filtroSeleccionNotificacion">
+                            <select class="filtroNombreNotificaciones" id="nameFilter">
+                                <option value="Todos">Todos</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </details>
+                        
+            <div class="contendorNotificaciones" id="contendorNotificaciones"></div>
+        </section>
+        <section class="seccionCalendario">
+            <h2>Calendario
+                <span class="cerrarSeccion" id="cerrarCalendario">✖</span>
+            </h2>
+            <div class="calendarioPart1">
+                <button id="mesAnterior">◀</button>
+                <span id="mesIndicador"></span>
+                <button id="mesSiguinte">▶</button>
+            </div>
+            <div class="calendarioPart2">
+                <div class="calendarioDiaSemana">Lun.</div>
+                <div class="calendarioDiaSemana">Mar.</div>
+                <div class="calendarioDiaSemana">Mié.</div>
+                <div class="calendarioDiaSemana">Jue.</div>
+                <div class="calendarioDiaSemana">Vie.</div>
+                <div class="calendarioDiaSemana">Sáb.</div>
+                <div class="calendarioDiaSemana">Dom.</div>
+            </div>
+            <div class="calendarioPart2Cel">
+                <div class="calendarioDiaSemana">L.</div>
+                <div class="calendarioDiaSemana">M.</div>
+                <div class="calendarioDiaSemana">M.</div>
+                <div class="calendarioDiaSemana">J.</div>
+                <div class="calendarioDiaSemana">V.</div>
+                <div class="calendarioDiaSemana">S.</div>
+                <div class="calendarioDiaSemana">D.</div>
+            </div>
+            <div class="calendarioPart3" id="calendarioPart3"></div>
+        </section>
+        <div class="modal oculto" id="modalEventosCalendarioUser">
+            <div class="modalContenido">
+                <div class="modalPart1">
+                    <h2>Eventos</h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
+                <div id="modalPart2EventosCalendarioUser" class="modalPart2"></div>
+            </div>
+        </div>
+    </main>
+    <script src="../scripts/userMenu.js"></script>
+    <script src="../scripts/Header.js"></script>
+    <script src="../scripts/userCalendario.js"></script>
+</body>
+</html>

@@ -1,0 +1,885 @@
+@import url(../style.css);
+
+
+
+
+
+
+.notifications-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+.notifications-container h2 {
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+.notifications {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    margin: 5px 20px;
+    width: calc(40vw - 20px);
+}
+/**/
+.notification-card {
+    background-color: #fff;
+    border-radius: 15px 0 0 15px;
+    -webkit-box-shadow: 0 0 5px 2px var(--Tcolor);
+            box-shadow: 0 0 5px 2px var(--Tcolor);
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    padding-right: 30px;
+}
+.notification-part1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 5px 5px 5px 10px;
+    background-color: var(--Tcolor);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    pointer-events: none;
+}
+.notification-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.notification-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+.notification-name {
+    margin: 0;
+    font-weight: bold;
+}
+.notification-role {
+    margin: 0;
+    margin-left: 10px;
+    color: #555;
+    font-size: clamp(8pt, 0.9vw, 200pt);
+}
+/**/
+.notification-part2 {
+    padding: 10px;
+    overflow: hidden;
+}
+.notification-message {
+    margin: 0;
+    font-size: clamp(8pt, 1.2vw, 200pt);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    display: -moz-box;
+    line-clamp: 4;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    height: auto;
+    max-height: 5.76em;
+    text-align: justify;
+}
+/**/
+.notification-part3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 10px;
+    background-color: var(--Tcolor);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+.read-status {
+    margin: 0;
+    font-size: clamp(8pt, 1.2vw, 200pt);
+}
+.toggle-read-status,
+.mark-as-read,
+.toggle-view {
+    border: none;
+    background-color: var(--Ccolor);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.toggle-read-status:hover,
+.mark-as-read:hover,
+.toggle-view:hover {
+    background-color: var(--Qcolor);
+}
+.hidden {
+    display: none;
+}
+/**/
+.notification-part4 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--Ccolor);
+    width: 30px;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.notification-action-btn {
+    border: none;
+    background-color: transparent;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: clamp(8pt, 1.2vw, 200pt);
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+.notification-action-btn:hover {
+    background-color: var(--Qcolor);
+}
+.btnCOnfiguracionDeMensaje {
+    width: 30px;
+    height: auto;
+    pointer-events: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+/*seccion de notificaciones*/
+.noview {
+    display: none;
+}
+.create-notification, .message-editor {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: calc(60% - 80px);
+    height: 90vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.create-notification textarea {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 80%;
+    height: 70%;
+    margin-bottom: auto;
+    padding: 10px;
+    border: 2px solid var(--Sxcolor);
+    border-radius: 5px;
+    font-size: 16px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    resize: none;
+}
+.create-notification textarea:focus {
+    outline: none;
+}
+.btnDeMensajesOptions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 15px;
+}
+
+.create-notification .button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-top: auto;
+}
+
+.create-notification button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.create-notification button:hover {
+    background-color: #0056b3;
+}
+
+/*alertas*/
+/* Contenedor de alerta que cubre toda la pantalla */
+.alert-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Tarjeta de alerta */
+.alert-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.alert-card p {
+    margin: 0 0 20px;
+    font-size: 16px;
+}
+
+.alert-card button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.alert-card button:hover {
+    background: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Botones de Confirmación */
+.confirm-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.confirm-buttons button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.confirm-buttons button:hover {
+    background: #0056b3;
+}
+/**/
+
+/*notas*/
+.full-screen-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+.course-selection-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    background-color: var(--Qcolor);
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+.course-select-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+select {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--Tcolor);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: left;
+    position: relative;
+}
+select:focus {
+    outline: none;
+}
+select:after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+}
+select:hover {
+    background-color: var(--Sxcolor);
+}
+#selectedCourseContainer {
+    margin-left: 15px;
+    font-weight: bold;
+    color: var(--Sxcolor);
+    display: none; 
+}
+#enterBtn {
+    background-color: var(--Tcolor);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    width: 100%;
+}
+#enterBtn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+#enterBtn:not(:disabled):hover {
+    background-color: var(--Sxcolor);
+}
+/**/
+/**/
+/**/
+/**/
+.main-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.students, .subjects {
+    background-color: var(--Qcolor);
+    -webkit-box-shadow: 0 0 10px #000;
+            box-shadow: 0 0 10px #000;
+    margin: 20px;
+    border-radius: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    max-width: 20%;
+    height: calc(100vh - 40px);
+}
+.seperador {
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: calc(100% - 10px);
+    height: 2px;
+    margin: 10px 0;
+    background-color: #000;
+}
+.students h2, .subjects h2 {
+    margin: 5px 0 20px 5px;
+}
+.students .studentList {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow-y: auto;
+    gap: 5px;
+}
+.students .studentList .student-btn {
+    color: #000;
+    font-size: clamp(8pt, 1vw, 200pt);
+    border: none;
+    background-color: var(--Sxcolor);
+    padding: 10px 0;
+    cursor: pointer;
+}
+.students .studentList .student-btn:hover, .students .student-controls #addStudent:hover, .students .student-controls #removeStudent:hover {
+    background-color: var(--Tcolor);
+}
+.students .studentList .student-btn:active, .students .student-controls #addStudent:active, .students .student-controls #removeStudent:active {
+    background-color: rgb(250, 151, 175);
+}
+.students .studentList .student-btn:focus {
+    background-color: rgb(250, 151, 175);
+}
+.students .student-controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 0 5px 10px 5px;
+}
+.students .student-controls #addStudent, .students .student-controls #removeStudent {
+    width: calc((100% - 10px)/2);
+    border: none;
+    background-color: var(--Sxcolor);
+    padding: 7.5px 0;
+    font-size: clamp(8pt, 1.1vw, 200pt);
+    font-weight: bold;
+}
+/*cursos y materias*/
+.subjectMateria {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-150%);
+        -ms-transform: translateY(-150%);
+            transform: translateY(-150%);
+}
+/*notas*/
+.notes {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin: 20px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.notes .notesContainerSub {
+    background-color: var(--Qcolor);
+    -webkit-box-shadow: 0 0 10px #000;
+            box-shadow: 0 0 10px #000;
+    border-radius: 10px;
+    width: 80%;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+.notes .notesContainerSub.visible {
+    opacity: 1;
+}
+.notes .notesContainerSub h2 {
+    margin: 10px 0 20px 10px;
+}
+.notes .notesContainerSub .notesAll {
+    margin: 0 0 15px 25px;
+}
+.notes .notesContainerSub .notesAll .btnNotes {
+    color: #000;
+    font-size: clamp(8pt, 1vw, 200pt);
+    border: none;
+    background-color: var(--Sxcolor);
+    padding: 10px 0;
+    width: 150px;
+    margin: 0 10px 10px 0;
+    cursor: pointer;;
+}
+.notes .notesContainerSub .notesAll .btnNotes:last-child {
+    margin-bottom: 0;
+}
+.notes .notesContainerSub .notesAll .btnNotes:hover {
+    background-color: var(--Tcolor);
+}
+.notes .notesContainerSub .notesAll .btnNotes:active {
+    background-color: rgb(250, 151, 175);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hidden {
+    display: none;
+}
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Mantener en el mismo lugar cuando se desplaza */
+    z-index: 1; /* Enfrente de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: hidden; /* Ocultar el desbordamiento */
+    background-color: rgba(0,0,0,0.4); /* Fondo negro con opacidad */
+}
+
+/* Contenido de la ventana modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centrar vertical y horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Ajustar el ancho del modal */
+    max-width: 500px; /* Ancho máximo del modal */
+    border-radius: 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; /* Incluir el padding en el ancho total */
+    max-height: 80vh; /* Limitar altura para evitar desplazamiento excesivo */
+    overflow-y: auto; /* Permitir desplazamiento si es necesario */
+}
+
+/* Botón para cerrar el modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de agregar */
+#confirmAddStudent {
+    background-color: #4aeb00; /* Color de fondo verde */
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#confirmAddStudent:hover {
+    background-color: #4cb40f;
+}
+
+/* Estilo para el campo de entrada */
+#studentNameInput {
+    width: calc(100% - 22px); /* Ajuste de ancho */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilos para el modal de confirmación */
+.modal-footer {
+    text-align: center;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    background-color: #0056b3;
+}
+
+.modal-btn:last-child {
+    background-color: #4aeb00;
+}
+
+.modal-btn:last-child:hover {
+    background-color: #4cb40f;
+}
+
+/* Botón de cierre */
+.close-options-modal,
+.close-grade-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-options-modal:hover,
+.close-grade-modal:hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Botones de opción */
+.option-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.option-btn:hover {
+    background-color: #ddd;
+}
+
+/* Contenedor de opción personalizada */
+.other-option-container {
+    margin-top: 10px;
+}
+
+.modal-btn {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #af744c; /* Color de fondo del botón */
+    color: white;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    background-color: #a34608;
+}
+
+#otherOptionInput {
+    width: calc(100% - 22px); /* Ajustar para el padding y el borde */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+    transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+    -o-transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
+}
+
+#otherOptionInput:focus {
+    border-color: #4CAF50; /* Color de borde en enfoque */
+    -webkit-box-shadow: 0 0 5px rgba(76,175,80,0.5);
+            box-shadow: 0 0 5px rgba(76,175,80,0.5); /* Sombra de enfoque */
+    outline: none;
+}
+
+/* Botones de nota */
+.grade-btn {
+    display: inline-block;
+    width: 80px;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    -o-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.grade-btn:hover {
+    background-color: #ddd;
+}
+
+/* Sección de notas */
+.grade-section {
+    margin-bottom: 20px;
+}
+
+#numericGradeInput {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+    transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+    -o-transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
+}
+
+#numericGradeInput:focus {
+    border-color: #4CAF50;
+    -webkit-box-shadow: 0 0 5px rgba(76,175,80,0.5);
+            box-shadow: 0 0 5px rgba(76,175,80,0.5);
+    outline: none;
+}
+
+/* Botones del modal */
+.grade-actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-top: 20px;
+}

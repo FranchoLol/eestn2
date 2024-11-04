@@ -1,0 +1,8 @@
+Header: #628395 (Este es el color que sugeriste para el header).
+Fondo del Main: #FAF9F6 (Blanco nieve, le da un aspecto limpio y suave).
+Texto Principal: #1C1C1C (Negro suave para un contraste claro sin ser demasiado intenso).
+Hipervínculos/Links: #376996 (Un azul oscuro que complementa el header y resalta sin ser demasiado brillante).
+Sombreado: #96897B (Color neutro que aporta profundidad sin ser demasiado oscuro).
+Botones Primarios: #4CAF50 (Un verde fresco que contrasta bien con el azul del header y es fácil de leer sobre el blanco nieve).
+Botones Secundarios/Hover: #45A049 (Una versión un poco más oscura del verde primario para resaltar al hacer hover).
+Bordes/Separadores: #D4CFC9 (Un gris claro que mantiene la suavidad del diseño pero añade estructura).

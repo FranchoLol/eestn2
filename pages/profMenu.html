@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matias Ferrando - Profesor - E.E.S.T. N°2</title>
+    <link rel="icon" href="../img/l.png" type="image/png">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+</head>
+<body>
+    <header id="menuHeader">
+        <div class="index">
+            <div class="userProfile">
+                <img src="../img/perfiles/FerrandoMatias.jpg" class="profileImage" alt="Usuario">
+                <h1 class="userName">Matias Ferrando</h1>
+            </div>
+            <nav class="navHeader">
+                <ul>
+                    <li><a href="profMenu.html"><img src="../img/utilidades/casaLight.png" alt="inicioIMG" class="iconsHeader"> Inicio</a></li>
+                    <li><a href="profNotificaciones.html"><img src="../img/utilidades/notificacionLight.png" alt="MateriasIMG" class="iconsHeader"> Notificaciones</a></li>
+                    <li><a href="profNota.html"><img src="../img/utilidades/libroLight.png" alt="MateriasIMG" class="iconsHeader"> Notas</a></li>
+                    <li><a href="profAsistencia.html"><img src="../img/utilidades/checkUserLight.png" alt="MateriasIMG" class="iconsHeader"> Asistencia</a></li>
+                    <li><a href="profCalendario.html"><img src="../img/utilidades/calendarioLight.png" alt="MateriasIMG" class="iconsHeader"> Calendario</a></li>
+                </ul>
+            </nav>
+            <div class="confHeader">
+                <button class="btnExit" id="btnExit"><img src="../img/utilidades/cerrarSesionLight.png" alt="exitIMG" class="iconsHeader"> Salir</button>
+            </div>
+        </div>
+        <label class="btnMenuHeader" for="ckbMenuHeader">
+            <input type="checkbox" id="ckbMenuHeader">
+            <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
+        </label>
+    </header>
+    <main>
+        <section class="seccionCursoMateria">
+            <div class="expandirSubHeader" id="expandirSubHeader">
+                <img src="../img/utilidades/expansorLight.png" alt="Expandir" class="iconSubHeader">
+            </div>
+            <div class="seleccionar">
+                <table>
+                    <tbody>
+                        <td>Curso:</td>
+                        <td>
+                            <select id="seleccionCurso" name="curso">
+                                <option value=" " selected disabled>Selecciona un curso</option>
+                                <option value="5to 2da">5to 2da</option>
+                                <option value="6to 2da">6to 2da</option>
+                            </select>
+                        </td>
+                    </tbody>
+                    <tbody>
+                        <td>Materia:</td>
+                        <td>
+                            <select id="seleccionMateria" name="materia"></select>
+                        </td>
+                    </tbody>
+                </table>        
+            </div>
+        </section>
+
+    </main> 
+    <script src="../scripts/profMenu.js"></script>
+    <script src="../scripts/Header.js"></script>
+</body>
+</html>
