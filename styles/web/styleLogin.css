@@ -313,7 +313,7 @@ main {
     height: -webkit-calc(100vh - var(--Aheader));
     height: -moz-calc(100vh - var(--Aheader));
     height: calc(100vh - var(--Aheader));
-    background-image: url(/img/cole.jpg);
+    background-image: url(img/cole.jpg);
     background-position: center bottom;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
