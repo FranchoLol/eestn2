@@ -962,7 +962,7 @@ form input::placeholder {
     height: 20px;
     width: 20px;
     cursor: pointer;
-    background-image: url('/img/password/eyeClosed.svg');
+    background-image: url('../../img/password/eyeClosed.svg');
     -webkit-background-size: cover;
        -moz-background-size: cover;
          -o-background-size: cover;
@@ -973,7 +973,7 @@ form input::placeholder {
     transition: background-image 0.2s ease;
 }
 .eyeInputPass.show-password {
-    background-image: url('/img/password/eyeOpen.svg');
+    background-image: url('../../img/password/eyeOpen.svg');
 }
 /* Botón de ingreso */
 form button {
