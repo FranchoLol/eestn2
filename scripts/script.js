@@ -63,7 +63,7 @@ const imagenRandom = document.getElementById('imagenRandom');
 const txtPortalGaleria = document.getElementById('txtPortalGaleria');
 
 for (let i = 1; i <= cantidadDeFotos; i++) {
-    imagenes.push(`img/galeria/f${i}.jpg`);
+    imagenes.push(`./img/galeria/f${i}.jpg`);
 }
 
 let imagenesMostradas = [];
