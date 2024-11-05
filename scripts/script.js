@@ -7,13 +7,6 @@ document.getElementById('loginForm').addEventListener('submit', e => {
     const pages = { u: 'userMenu', p: 'profMenu', c: 'preceptorMenu', d: 'directorMenu' };
     window.location.href = `pages/${pages[username] || 'userMenu'}.html`;
 });
-// portales
-document.querySelectorAll('.btn-portal').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const destino = btn.textContent.includes('Estudiantes') ? 'pages/userMenu.html' : btn.textContent.includes('Profesores') ? 'pages/profMenu.html' : null;
-        if (destino) window.location.href = destino;
-    });
-});
 // ocultar y desocultar la contraseña
 document.getElementById('togglePassword').addEventListener('click', function() {
     const passwordInput = document.getElementById('password');
@@ -63,3 +56,45 @@ document.addEventListener('DOMContentLoaded', () => {
         menuIcon.classList.replace('fa-times', 'fa-bars');
     });
 });
+// galeria de fotos
+const imagenes = [];
+const cantidadDeFotos = 6;
+const imagenRandom = document.getElementById('imagenRandom');
+const txtPortalGaleria = document.getElementById('txtPortalGaleria');
+
+for (let i = 1; i <= cantidadDeFotos; i++) {
+    imagenes.push(`img/galeria/f${i}.jpg`);
+}
+
+let imagenesMostradas = [];
+let ultimaImagen = null;
+
+function cambiarImagen() {
+    if (imagenesMostradas.length === imagenes.length) {
+        imagenesMostradas = [];
+    }
+    let nuevaImagen;
+    do {
+        nuevaImagen = imagenes[Math.floor(Math.random() * imagenes.length)];
+    } while (nuevaImagen === ultimaImagen || imagenesMostradas.includes(nuevaImagen));
+
+    imagenesMostradas.push(nuevaImagen);
+    ultimaImagen = nuevaImagen;
+
+    imagenRandom.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+    imagenRandom.style.transform = 'scale(0.5)';
+    imagenRandom.style.opacity = '0';
+
+    setTimeout(() => {
+        imagenRandom.src = nuevaImagen;
+        setTimeout(() => {
+            imagenRandom.style.transform = 'scale(1)';
+            imagenRandom.style.opacity = '1';
+        }, 50);
+        txtPortalGaleria.innerText = `Encuentra más de ${cantidadDeFotos} fotos.`;
+    }, 400);
+}
+
+imagenRandom.src = imagenes[0];
+ultimaImagen = imagenRandom.src;
+setInterval(cambiarImagen, 4000);
