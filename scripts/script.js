@@ -57,25 +57,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 // galeria de fotos
-const imagenes = [];
-const cantidadDeFotos = 6;
+const carpetas = [
+    "torneoVoley2024",
+    "muestraInstitucional2022",
+    "egresados2019",
+    "muestraInstitucional2019",
+    "egresados2017"
+];
+
 const imagenRandom = document.getElementById('imagenRandom');
 const txtPortalGaleria = document.getElementById('txtPortalGaleria');
 
-for (let i = 1; i <= cantidadDeFotos; i++) {
-    imagenes.push(`img/galeria/f${i}.jpg`);
-}
+const imagenesPorCarpeta = carpetas.reduce((acc, carpeta) => {
+    const imagenesAlbum = [];
+    let i = 1;
+    while (i <= 30) {
+        const imgPath = `img/galeria/albuns/${carpeta}/f${i}.jpg`;
+        const img = new Image();
+        img.src = imgPath;
+        img.onerror = () => {
+            if (i === 1) acc[carpeta] = [];
+            return true;
+        };
+        img.onload = () => {
+            imagenesAlbum.push(imgPath);
+        };
+        i++;
+    }
+    acc[carpeta] = imagenesAlbum;
+    return acc;
+}, {});
 
 let imagenesMostradas = [];
 let ultimaImagen = null;
+let totalFotos = 0;
+
+carpetas.forEach(carpeta => {
+    totalFotos += imagenesPorCarpeta[carpeta].length;
+});
 
 function cambiarImagen() {
-    if (imagenesMostradas.length === imagenes.length) {
-        imagenesMostradas = [];
-    }
+    const carpetaAleatoria = carpetas[Math.floor(Math.random() * carpetas.length)];
+    const imagenesDeCarpeta = imagenesPorCarpeta[carpetaAleatoria];
+    
     let nuevaImagen;
     do {
-        nuevaImagen = imagenes[Math.floor(Math.random() * imagenes.length)];
+        nuevaImagen = imagenesDeCarpeta[Math.floor(Math.random() * imagenesDeCarpeta.length)];
     } while (nuevaImagen === ultimaImagen || imagenesMostradas.includes(nuevaImagen));
 
     imagenesMostradas.push(nuevaImagen);
@@ -91,10 +118,18 @@ function cambiarImagen() {
             imagenRandom.style.transform = 'scale(1)';
             imagenRandom.style.opacity = '1';
         }, 50);
-        txtPortalGaleria.innerText = `Encuentra más de ${cantidadDeFotos} fotos.`;
+
+        txtPortalGaleria.innerText = `Encuentra más de ${45 + 83 + 36 + 51 + 38 + 57} fotos.`;
     }, 400);
 }
 
-imagenRandom.src = imagenes[0];
-ultimaImagen = imagenRandom.src;
-setInterval(cambiarImagen, 4000);
+const primeraImagen = imagenesPorCarpeta[carpetas[0]][0];
+imagenRandom.src = primeraImagen;
+ultimaImagen = primeraImagen;
+
+let intervalo = setInterval(() => {
+    cambiarImagen();
+
+    clearInterval(intervalo);
+    setInterval(cambiarImagen, 4000);
+}, 1000);

@@ -6,4 +6,4 @@ function adjustMenu() {
 document.getElementById('ckbMenuHeader').addEventListener('change', adjustMenu);
 window.addEventListener('resize', adjustMenu);
 adjustMenu();
-document.querySelector('#btnExit').onclick = () => location.href = '../../../index.html';
+document.querySelector('#btnExit').onclick = () => location.href = '../index.html';
