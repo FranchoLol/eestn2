@@ -71,8 +71,8 @@ const txtPortalGaleria = document.getElementById('txtPortalGaleria');
 const imagenesPorCarpeta = carpetas.reduce((acc, carpeta) => {
     const imagenesAlbum = [];
     let i = 1;
-    while (i <= 30) {
-        const imgPath = `img/galeria/albuns/${carpeta}/f${i}.jpg`;
+    while (i <= 20) {
+        const imgPath = `img/galeria/albuns/${carpeta}/f${i}.webp`;
         const img = new Image();
         img.src = imgPath;
         img.onerror = () => {
@@ -132,4 +132,4 @@ let intervalo = setInterval(() => {
 
     clearInterval(intervalo);
     setInterval(cambiarImagen, 4000);
-}, 1000);
+}, 500);

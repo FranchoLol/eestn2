@@ -15,7 +15,7 @@ let albumActual = null, imagenActual = null;
 carpetas.forEach(carpeta => {
     const button = document.createElement("button");
     button.className = "btnContenedorAlbunes";
-    button.innerHTML = `<img src="../../img/galeria/albuns/${carpeta}/f1.jpg" alt="${carpeta}">
+    button.innerHTML = `<img src="../../img/galeria/albuns/${carpeta}/f1.webp" alt="${carpeta}">
                         <p>${carpeta.replace(/([A-Z])/g, ' $1').trim()}</p>`;
     button.onclick = () => mostrarAlbum(carpeta);
     albunesImg.appendChild(button);
@@ -37,7 +37,7 @@ function mostrarAlbum(carpeta) {
 
     let totalImages = 0;
     for (let i = 1; i <= 100; i++) {
-        const imgPath = `../../img/galeria/albuns/${carpeta}/f${i}.jpg`;
+        const imgPath = `../../img/galeria/albuns/${carpeta}/f${i}.webp`;
         const img = document.createElement("img");
         img.src = imgPath;
         img.alt = `Imagen ${i}`;
