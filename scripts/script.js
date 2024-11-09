@@ -89,10 +89,14 @@ function cargarImagenAleatoria() {
 
     setTimeout(() => {
         imagenRandom.src = nuevaImagen;
+    }, 300);
+
+    setTimeout(() => {
         imagenRandom.style.transform = 'scale(1)';
         imagenRandom.style.opacity = '1';
-    }, 300); 
+    }, 400);
 
+    // torneoVoley24 + concursoArte24 + muestraInst.22 + egresados19 + muestraInst.19 + egresados17
     txtPortalGaleria.innerText = `Encuentra más de ${45 + 83 + 36 + 51 + 38 + 57} fotos.`;
 }
 
