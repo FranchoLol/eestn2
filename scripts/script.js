@@ -68,42 +68,17 @@ const carpetas = [
 const imagenRandom = document.getElementById('imagenRandom');
 const txtPortalGaleria = document.getElementById('txtPortalGaleria');
 
-const imagenesPorCarpeta = carpetas.reduce((acc, carpeta) => {
-    const imagenesAlbum = [];
-    let i = 1;
-    while (i <= 20) {
-        const imgPath = `img/galeria/albuns/${carpeta}/f${i}.webp`;
-        const img = new Image();
-        img.src = imgPath;
-        img.onerror = () => {
-            if (i === 1) acc[carpeta] = [];
-            return true;
-        };
-        img.onload = () => {
-            imagenesAlbum.push(imgPath);
-        };
-        i++;
-    }
-    acc[carpeta] = imagenesAlbum;
-    return acc;
-}, {});
-
-let imagenesMostradas = [];
 let ultimaImagen = null;
-let totalFotos = 0;
+let imagenesMostradas = [];
 
-carpetas.forEach(carpeta => {
-    totalFotos += imagenesPorCarpeta[carpeta].length;
-});
-
-function cambiarImagen() {
+function cargarImagenAleatoria() {
     const carpetaAleatoria = carpetas[Math.floor(Math.random() * carpetas.length)];
-    const imagenesDeCarpeta = imagenesPorCarpeta[carpetaAleatoria];
-    
-    let nuevaImagen;
-    do {
-        nuevaImagen = imagenesDeCarpeta[Math.floor(Math.random() * imagenesDeCarpeta.length)];
-    } while (nuevaImagen === ultimaImagen || imagenesMostradas.includes(nuevaImagen));
+    const numeroImagenAleatoria = Math.floor(Math.random() * 20) + 1;
+    const nuevaImagen = `img/galeria/albuns/${carpetaAleatoria}/f${numeroImagenAleatoria}.webp`;
+
+    if (nuevaImagen === ultimaImagen || imagenesMostradas.includes(nuevaImagen)) {
+        return cargarImagenAleatoria();
+    }
 
     imagenesMostradas.push(nuevaImagen);
     ultimaImagen = nuevaImagen;
@@ -114,22 +89,15 @@ function cambiarImagen() {
 
     setTimeout(() => {
         imagenRandom.src = nuevaImagen;
-        setTimeout(() => {
-            imagenRandom.style.transform = 'scale(1)';
-            imagenRandom.style.opacity = '1';
-        }, 50);
-
-        txtPortalGaleria.innerText = `Encuentra más de ${45 + 83 + 36 + 51 + 38 + 57} fotos.`;
+        imagenRandom.style.transform = 'scale(1)';
+        imagenRandom.style.opacity = '1';
     }, 400);
+
+    txtPortalGaleria.innerText = `Encuentra más de ${45 + 83 + 36 + 51 + 38 + 57} fotos.`;
 }
 
-const primeraImagen = imagenesPorCarpeta[carpetas[0]][0];
-imagenRandom.src = primeraImagen;
-ultimaImagen = primeraImagen;
+cargarImagenAleatoria();
 
-let intervalo = setInterval(() => {
-    cambiarImagen();
-
-    clearInterval(intervalo);
-    setInterval(cambiarImagen, 4000);
-}, 500);
+setTimeout(() => {
+    setInterval(cargarImagenAleatoria, 4000);
+}, 10);
