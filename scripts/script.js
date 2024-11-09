@@ -89,7 +89,7 @@ function cargarImagenAleatoria() {
 
     setTimeout(() => {
         imagenRandom.src = nuevaImagen;
-    }, 300);
+    }, 200);
 
     setTimeout(() => {
         imagenRandom.style.transform = 'scale(1)';
