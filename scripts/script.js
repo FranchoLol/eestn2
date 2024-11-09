@@ -70,6 +70,7 @@ const txtPortalGaleria = document.getElementById('txtPortalGaleria');
 
 let ultimaImagen = null;
 let imagenesMostradas = [];
+let imagenesPrecargadas = [];
 
 function cargarImagenAleatoria() {
     const carpetaAleatoria = carpetas[Math.floor(Math.random() * carpetas.length)];
@@ -83,21 +84,39 @@ function cargarImagenAleatoria() {
     imagenesMostradas.push(nuevaImagen);
     ultimaImagen = nuevaImagen;
 
+    precargarImagenSiguiente();
+
+    const imgPreload = new Image();
+    imgPreload.src = nuevaImagen;
+
     imagenRandom.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
     imagenRandom.style.transform = 'scale(0.5)';
     imagenRandom.style.opacity = '0';
 
-    setTimeout(() => {
-        imagenRandom.src = nuevaImagen;
-    }, 200);
+    imgPreload.onload = () => {
+        setTimeout(() => {
+            imagenRandom.src = nuevaImagen;
+        }, 200);
 
-    setTimeout(() => {
-        imagenRandom.style.transform = 'scale(1)';
-        imagenRandom.style.opacity = '1';
-    }, 400); 
+        setTimeout(() => {
+            imagenRandom.style.transform = 'scale(1)';
+            imagenRandom.style.opacity = '1';
+        }, 600);
+    };
 
-    // torneoVoley24 + concursoArte24 + muestraInst.22 + egresados19 + muestraInst.19 + egresados17
     txtPortalGaleria.innerText = `Encuentra más de ${45 + 83 + 36 + 51 + 38 + 57} fotos.`;
+}
+
+function precargarImagenSiguiente() {
+    const carpetaAleatoria = carpetas[Math.floor(Math.random() * carpetas.length)];
+    const numeroImagenAleatoria = Math.floor(Math.random() * 20) + 1;
+    const imagenSiguiente = `img/galeria/albuns/${carpetaAleatoria}/f${numeroImagenAleatoria}.webp`;
+
+    if (!imagenesPrecargadas.includes(imagenSiguiente)) {
+        const imgPreload = new Image();
+        imgPreload.src = imagenSiguiente;
+        imagenesPrecargadas.push(imagenSiguiente);
+    }
 }
 
 cargarImagenAleatoria();
@@ -105,3 +124,4 @@ cargarImagenAleatoria();
 setTimeout(() => {
     setInterval(cargarImagenAleatoria, 4000);
 }, 10);
+
