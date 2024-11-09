@@ -91,7 +91,7 @@ function cargarImagenAleatoria() {
         imagenRandom.src = nuevaImagen;
         imagenRandom.style.transform = 'scale(1)';
         imagenRandom.style.opacity = '1';
-    }, 400);
+    }, 300); 
 
     txtPortalGaleria.innerText = `Encuentra más de ${45 + 83 + 36 + 51 + 38 + 57} fotos.`;
 }
