@@ -84,27 +84,34 @@ function cargarImagenAleatoria() {
     imagenesMostradas.push(nuevaImagen);
     ultimaImagen = nuevaImagen;
 
-    precargarImagenSiguiente();
-
-    const imgPreload = new Image();
-    imgPreload.src = nuevaImagen;
+    if (!imagenesPrecargadas.includes(nuevaImagen)) {
+        precargarImagen(nuevaImagen);
+    }
 
     imagenRandom.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
     imagenRandom.style.transform = 'scale(0.5)';
     imagenRandom.style.opacity = '0';
 
-    imgPreload.onload = () => {
-        setTimeout(() => {
-            imagenRandom.src = nuevaImagen;
-        }, 200);
+    setTimeout(() => {
+        imagenRandom.src = nuevaImagen;
+    }, 200);
 
-        setTimeout(() => {
-            imagenRandom.style.transform = 'scale(1)';
-            imagenRandom.style.opacity = '1';
-        }, 600);
-    };
+    setTimeout(() => {
+        imagenRandom.style.transform = 'scale(1)';
+        imagenRandom.style.opacity = '1';
+    }, 400);
 
     txtPortalGaleria.innerText = `Encuentra más de ${45 + 83 + 36 + 51 + 38 + 57} fotos.`;
+
+    precargarImagenSiguiente();
+}
+
+function precargarImagen(imagen) {
+    const imgPreload = new Image();
+    imgPreload.src = imagen;
+    imgPreload.onload = () => {
+        imagenesPrecargadas.push(imagen);
+    };
 }
 
 function precargarImagenSiguiente() {
@@ -113,9 +120,7 @@ function precargarImagenSiguiente() {
     const imagenSiguiente = `img/galeria/albuns/${carpetaAleatoria}/f${numeroImagenAleatoria}.webp`;
 
     if (!imagenesPrecargadas.includes(imagenSiguiente)) {
-        const imgPreload = new Image();
-        imgPreload.src = imagenSiguiente;
-        imagenesPrecargadas.push(imagenSiguiente);
+        precargarImagen(imagenSiguiente);
     }
 }
 
@@ -124,4 +129,3 @@ cargarImagenAleatoria();
 setTimeout(() => {
     setInterval(cargarImagenAleatoria, 4000);
 }, 10);
-
