@@ -2786,5 +2786,8 @@ main {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .bibliotecaFragSub4-2 p {
+    margin-bottom: 80px;
+  }
 }
 /************/
