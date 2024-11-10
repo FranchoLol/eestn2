@@ -7,6 +7,8 @@
     <link rel="icon" href="../img/l.png" type="image/png">
     <link rel="stylesheet" href="../styles/style.css" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     <header id="menuHeader">
@@ -34,7 +36,75 @@
     <main>
         <section class="seccionBiblioteca">
             <h2>Materias y Materiales</h2>
-            <div class="tablaBibliotecaScroll">
+            <div class="contenedorBiblioteca">
+                <div class="biliotecaContenedorMaterias">
+                    <h3>Materias</h3>
+                    <div class="biliotecaMaterias">
+                        <button>Lab. de Diseño web</button>
+                        <button>Lab. de Bases de datos</button>
+                        <button>Lab. de Programacion</button>
+                        <button>Lab. de Redes Informáticas</button>
+                        <button>Literatura</button>
+                        <button>Inglés</button>
+                        <button>Educación Física</button>
+                        <button>Política y Ciudadanía</button>
+                        <button>Historia</button>
+                        <button>Geografía</button>
+                        <button>Análisis Matemático</button>
+                        <button>Sistemas Digitales</button>
+                        <button>Base de Datos</button>
+                        <button>Modelos y Sistemas</button>
+                    </div>
+                </div>
+                <div class="biliotecaContenedorMateriasActividades">
+                    <h3 id="tituloMateriales">Materiales</h3>
+                    <div class="bibliotecaMateriales">
+                        <button>Trabajo práctico UML</button>
+                        <button>Trabajo Practico: Prototipos</button>
+                        <button>Factor común</button>
+                        <button>otra cosa 1</button>
+                        <button>otra cosa 2</button>
+                        <button>otra cosa 3</button>
+                        <button>otra cosa 4</button>
+                        <button>otra cosa 5</button>
+                        <button>otra cosa 6</button>
+                        <button>otra cosa 7</button>
+                        <button>otra cosa 8</button>
+                        <button>otra cosa 9</button>
+                        <button>otra cosa 10</button>
+                        <button>otra cosa 11</button>
+                        <button>otra cosa 12</button>
+                    </div>
+                </div>
+                <div class="biliotecaContenedorActividades">
+                    <div class="bibliotecaFrag1">
+                        <h3 id="tituloActividad"></h3>
+                        <button id="bibliotecaClose"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="bibliotecaFrag2">
+                        <p>Fecha publicado: 18/10/2024</p>
+                        <p>Fecha de entrega: 15/11/2024</p>
+                    </div>
+                    <div class="bibliotecaFrag3">
+                        <p>Realizar el trabajo practico en grupos de 4 estudiantes (excluyente).<br>Realizar una investigación detallada sobre UML (Lenguaje Unificado de Modelado), en la cual debe incluir sus orígenes, principales tipos de diagramas (como diagramas de clases, de secuencia, de casos de uso, etc.), su importancia en el desarrollo de software, y ejemplos prácticos de su aplicación en proyectos reales. El trabajo debe abordar cómo UML facilita la comunicación entre los diferentes actores de un proyecto y cómo contribuye a la documentación y análisis de sistemas. Se debe incluir al menos tres fuentes bibliográficas.</p>
+                        <a href="../pdf/Archivo-adjuntado-3.pdf" target="_blank">
+                            <img src="../img/previstaPDF/archivoAdjuntado3.png">
+                            <span>Archivo adjunto <br> <span>PDF</span></span>
+                        </a>
+                    </div>
+                    <div class="bibliotecaFrag4">
+                        <div class="bibliotecaFragSub4">
+                            <p>Subir la tarea o arrastrar los archivos</p>
+                            <button>Subir</button>
+                        </div>
+                        <div class="bibliotecaFragSub4-2">
+                            <p>Sus archivos:</p>
+                            <button disabled title="No hay archivos adjuntos">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="tablaBibliotecaScroll">
                 <table class="tablaBiblioteca">
                     <thead>
                         <tr>
@@ -89,10 +159,9 @@
                         </tr>
                     </tbody>
                 </table>    
-            </div>
-            
+            </div>-->
         </section>
-        <div class="modal oculto" id="modalBibliotecaUser">
+        <!--<div class="modal oculto" id="modalBibliotecaUser">
             <div class="modalContenido">
                 <div class="modalPart1">
                     <h2 id="modalTituloBibliotecaUser">Biblioteca</h2>
@@ -107,7 +176,7 @@
                     </table>
                 </div>
             </div>
-        </div>
+        </div>-->
     </main>
     <script src="../scripts/userBiblioteca.js"></script>
     <script src="../scripts/Header.js"></script>

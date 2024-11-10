@@ -15,11 +15,18 @@ let albumActual = null, imagenActual = null;
 carpetas.forEach(carpeta => {
     const button = document.createElement("button");
     button.className = "btnContenedorAlbunes";
-    button.innerHTML = `<img src="../../img/galeria/albuns/${carpeta}/f1.webp" alt="${carpeta}">
-                        <p>${carpeta.replace(/([A-Z])/g, ' $1').trim()}</p>`;
+
+    const nombre = carpeta.replace(/\d+$/, '');
+    const año = carpeta.match(/\d+$/)[0];
+
+    button.innerHTML = `
+        <img src="../../img/galeria/albuns/${carpeta}/f1.webp" alt="${carpeta}">
+        <p>${nombre.replace(/([A-Z])/g, ' $1').trim()} ${año}</p>
+    `;
     button.onclick = () => mostrarAlbum(carpeta);
     albunesImg.appendChild(button);
 });
+
 
 function mostrarAlbum(carpeta) {
     if (albumActual === carpeta) {
