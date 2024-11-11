@@ -202,3 +202,9 @@ La estructura de la tabla de biblioteca fue modificada de un diseño complejo de
 | v1 | v2 |
 |-|-|
 |![bibliotecaV3](img/markdown/userBibliotecaV3.png)|![bibliotecaV4](img/markdown/userBibliotecaV4.png)|
+
+### 10-11
+- **Diseño del respolsivo biblioteca del usuario**: misma mecanica que la geleria del inicio. 
+
+![bibliotecaResponsil](img/markdown/userBibliotecaResponsilV1.png)
+- **Diseño del menu del profe**: se diseño el menu del profesor con sus notificaciones y clanedario, es tes calendario a diferencia del de usuario solo marca las faltas, ademas de que el profesor puede añadir notas al dia actual o futuro, puede editar notificaciones con un rango de max 7 semana anterior o eliminar notifiaciones del mismo dia o superior. Esto simulario que el profe sube sus notas al calendario las que  veria el alumno digamos. Las notifiaciones no tienen un filtro ya que solo ve las suyas pero se remplazo por un boton con acceso al apartado de notifiaciones que es donde podra subir estas editarlas o borrarlas. Algunas cosas estan sesacomodadas como este btn de notifiaciones o el modal del calendario del profe.

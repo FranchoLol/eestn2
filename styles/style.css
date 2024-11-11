@@ -2304,6 +2304,12 @@ main {
 .modalPart2 {
   margin-top: 10px;
 }
+
+.modalPart3 {
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid #ddd;
+}
 /*******************************/
 /*contenido de multiples modals*/
 /***************************************/
@@ -2362,7 +2368,6 @@ main {
       -ms-flex-align: center;
           align-items: center;
 }
-
 .modal-content {
   background-color: #fff;
   padding: 20px;
@@ -2403,6 +2408,7 @@ main {
   -moz-transition: transform 1s ease-in-out, -moz-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
   transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out, -moz-transform 1s ease-in-out, -o-transform 1s ease-in-out;
+  z-index: 10;
 }
 .expandirSubHeader {
   display: -webkit-box;
@@ -2791,3 +2797,4 @@ main {
   }
 }
 /************/
+

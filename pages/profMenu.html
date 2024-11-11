@@ -16,7 +16,6 @@
             </div>
             <nav class="navHeader">
                 <ul>
-                    <li><a href="profMenu.html"><img src="../img/utilidades/casaLight.png" alt="inicioIMG" class="iconsHeader"> Inicio</a></li>
                     <li><a href="profNotificaciones.html"><img src="../img/utilidades/notificacionLight.png" alt="MateriasIMG" class="iconsHeader"> Notificaciones</a></li>
                     <li><a href="profNota.html"><img src="../img/utilidades/libroLight.png" alt="MateriasIMG" class="iconsHeader"> Notas</a></li>
                     <li><a href="profAsistencia.html"><img src="../img/utilidades/checkUserLight.png" alt="MateriasIMG" class="iconsHeader"> Asistencia</a></li>
@@ -59,8 +58,85 @@
             </div>
         </section>
 
+        <section class="seccionAccesosInicio">
+            <h2>Accesos al contenido</h2>
+            <div class="accesoPart1">
+                <button class="btnsAccesos" id="seccionNotificacionesCel"><img src="../img/utilidades/notificacionLight.png" alt="Notificaciones" class="iconsAcceso"> Notificaciones</button>
+                <button class="btnsAccesos" id="seccionCalendarioCel"><img src="../img/utilidades/calendarioLight.png" alt="Notificaciones" class="iconsAcceso"> Calendario</button>
+            </div>
+        </section>
+
+        <section class="seccionNotificaciones">
+            <h2>Notificaciones
+                <span class="cerrarSeccion" id="cerrarNotificaciones">✖</span>
+            </h2>
+            <div class="agregarNotificacion">
+                <a href="profNotificaciones.html" class="botonAgregarNotificacion">+ Agregar Notificación</a>
+            </div>
+            <div class="contendorNotificaciones" id="contendorNotificaciones"></div>
+        </section>
+
+
+        <section class="seccionCalendario">
+            <h2>Calendario
+                <span class="cerrarSeccion" id="cerrarCalendario">✖</span>
+            </h2>
+            <div class="calendarioPart1">
+                <button id="mesAnterior">◀</button>
+                <span id="mesIndicador"></span>
+                <button id="mesSiguinte">▶</button>
+            </div>
+            <div class="calendarioPart2">
+                <div class="calendarioDiaSemana">Lun.</div>
+                <div class="calendarioDiaSemana">Mar.</div>
+                <div class="calendarioDiaSemana">Mié.</div>
+                <div class="calendarioDiaSemana">Jue.</div>
+                <div class="calendarioDiaSemana">Vie.</div>
+                <div class="calendarioDiaSemana">Sáb.</div>
+                <div class="calendarioDiaSemana">Dom.</div>
+            </div>
+            <div class="calendarioPart2Cel">
+                <div class="calendarioDiaSemana">L.</div>
+                <div class="calendarioDiaSemana">M.</div>
+                <div class="calendarioDiaSemana">M.</div>
+                <div class="calendarioDiaSemana">J.</div>
+                <div class="calendarioDiaSemana">V.</div>
+                <div class="calendarioDiaSemana">S.</div>
+                <div class="calendarioDiaSemana">D.</div>
+            </div>
+            <div class="calendarioPart3" id="calendarioPart3"></div>
+        </section>
+        <div class="modal oculto" id="modalEventosCalendarioProfesor">
+            <div class="modalContenido">
+              <div class="modalPart1">
+                <h2>Eventos para <span id="fechaSeleccionada"></span></h2>
+                <span class="cerrarModals">✖</span>
+              </div>
+              <div id="modalPart2EventosCalendarioProfesor" class="modalPart2"></div>
+              <div class="modalPart3">
+                <h3>Agregar/Editar Evento</h3>
+                <form id="formEvento">
+                  <select id="categoriaEvento" required>
+                    <option value="">Seleccione una categoría</option>
+                    <option value="TP">TP</option>
+                    <option value="Examen">Examen</option>
+                    <option value="Oral">Oral</option>
+                    <option value="Exposición">Exposición</option>
+                    <option value="Act.">Act.</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                  <input type="text" id="otraCategoria" placeholder="Especifique otra categoría" style="display: none;">
+                  <input type="text" id="descripcionEvento" placeholder="Descripción del evento" required>
+                  <button type="submit" id="guardarEvento">Guardar Evento</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+
     </main> 
     <script src="../scripts/profMenu.js"></script>
     <script src="../scripts/Header.js"></script>
+    <script src="../scripts/profCalendario.js"></script>
 </body>
 </html>
