@@ -2234,6 +2234,11 @@ main {
      -moz-border-radius: 5px;
           border-radius: 5px;
 }
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
 /*modal parte 1*/
 .modalPart1 {
   display: -webkit-box;
@@ -2304,6 +2309,25 @@ main {
 .modalPart2 {
   margin-top: 10px;
 }
+
+/*notificaciones profe*/
+.agregarNotificacion {
+  background-color: red;
+  margin: -10px 50px 25px 20px;
+  border-collapse: collapse;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.agregarNotificacion a {
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  padding: 4px 20px;
+  text-decoration: none;
+}
+
 
 .modalPart3 {
   display: flex;
@@ -2475,7 +2499,9 @@ main {
 
 
 
-
+#notificationMessage.editing {
+  background-color: #f0f0f0;
+}
 
 
 

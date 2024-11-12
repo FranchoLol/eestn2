@@ -16,7 +16,7 @@
             </div>
             <nav class="navHeader">
                 <ul>
-                    <li><a href="profNotificaciones.html"><img src="../img/utilidades/notificacionLight.png" alt="MateriasIMG" class="iconsHeader"> Notificaciones</a></li>
+                    <li><a href="profMenu.html"><img src="../img/utilidades/casaLight.png" alt="MateriasIMG" class="iconsHeader"> Inicio</a></li>
                     <li><a href="profNota.html"><img src="../img/utilidades/libroLight.png" alt="MateriasIMG" class="iconsHeader"> Notas</a></li>
                     <li><a href="profAsistencia.html"><img src="../img/utilidades/checkUserLight.png" alt="MateriasIMG" class="iconsHeader"> Asistencia</a></li>
                     <li><a href="profCalendario.html"><img src="../img/utilidades/calendarioLight.png" alt="MateriasIMG" class="iconsHeader"> Calendario</a></li>
@@ -79,12 +79,21 @@
                 <form id="notificationForm">
                     <textarea id="notificationMessage" required></textarea>
                     <button type="submit" id="submitNotification">Agregar Notificación</button>
+                    <button type="button" id="cancelNotification">Cancelar</button>
                     <button type="button" id="deleteNotification" style="display: none;">Eliminar Notificación</button>
                 </form>
             </div>
             <div class="contendorNotificaciones" id="contendorNotificaciones"></div>
         </section>
-          
+        
+        <div id="deleteConfirmationModal" class="modal">
+            <div class="modal-content">
+                <h2>Confirmar eliminación</h2>
+                <p>¿Está seguro de que desea eliminar esta notificación?</p>
+                <button id="confirmDelete">Sí, eliminar</button>
+                <button id="cancelDelete">Cancelar</button>
+            </div>
+        </div>
 
     </main> 
     <script src="../scripts/profMenu.js"></script>

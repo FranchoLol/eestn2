@@ -7,6 +7,55 @@
     <link rel="icon" href="../img/l.png" type="image/png">
     <link rel="stylesheet" href="../styles/web/styleProf.css" type="text/css">
 </head>
+<style>
+    body {
+        display: flex;
+        font-family: Arial, sans-serif;
+    }
+    #studentList {
+        width: 300px;
+        padding: 20px;
+        border-right: 1px solid #ccc;
+    }
+    #studentDetails {
+        flex-grow: 1;
+        padding: 20px;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    .student-button {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+    .student-button.active {
+        background-color: #ddd;
+    }
+    .close-button {
+        float: right;
+        cursor: pointer;
+    }
+    #filterButtons {
+        margin-bottom: 10px;
+    }
+</style>
 <body>
     <header id="menuHeader">
         <div class="index">
@@ -16,14 +65,14 @@
             </div>
             <nav class="navHeader">
                 <ul>
-                    <li><a href="menuProfe.html"><img src="../img/utilidades/casa.png" alt="inicioIMG" class="iconsHeader"> Inicio</a></li>
-                    <li><a href="notasProfes.html"><img src="../img/utilidades/libro.png" alt="MateriasIMG" class="iconsHeader"> Notas</a></li>
-                    <!--<li><a href="asistenciaProfe.html">Asistencia</a></li>
-                    <li><a href=""></a></li>-->
+                    <li><a href="profMenu.html"><img src="../img/utilidades/casaLight.png" alt="MateriasIMG" class="iconsHeader"> Inicio</a></li>
+                    <li><a href="profNotificaciones.html"><img src="../img/utilidades/notificacionLight.png" alt="MateriasIMG" class="iconsHeader"> Notificaciones</a></li>
+                    <li><a href="profAsistencia.html"><img src="../img/utilidades/checkUserLight.png" alt="MateriasIMG" class="iconsHeader"> Asistencia</a></li>
+                    <li><a href="profCalendario.html"><img src="../img/utilidades/calendarioLight.png" alt="MateriasIMG" class="iconsHeader"> Calendario</a></li>
                 </ul>
             </nav>
             <div class="confHeader">
-                <button class="btnExit" id="btnExit">Salir</button>
+                <button class="btnExit" id="btnExit"><img src="../img/utilidades/cerrarSesionLight.png" alt="exitIMG" class="iconsHeader"> Salir</button>
             </div>
         </div>
         <label class="btnMenuHeader" for="ckbMenuHeader">
@@ -31,7 +80,97 @@
             <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
         </label>
     </header>
+
     <main>
+        <div id="studentList">
+            <h2>Lista de Estudiantes</h2>
+            <div id="filterButtons">
+                <button id="filterAll">Todos</button>
+                <button id="filterFirstQuarter">Reprobados 1er Cuatrimestre</button>
+                <button id="filterSecondQuarter">Reprobados 2do Cuatrimestre</button>
+                <button id="filterBothQuarters">Reprobados Ambos Cuatrimestres</button>
+            </div>
+            <div id="students"></div>
+            <button id="addStudent">Agregar Estudiante</button>
+        </div>
+        <div id="studentDetails">
+            <h2 id="studentName"><span class="close-button">✖</span></h2>
+            <div id="averages">
+                <p>Promedio General: <span id="generalAvg"></span></p>
+                <p>Promedio de Asistencia: <span id="attendanceAvg"></span></p>
+                <p>Promedio de Nota: <span id="gradeAvg"></span></p>
+                <p>Promedio de Conducta: <span id="behaviorAvg"></span> <button id="changeBehavior">Cambiar</button></p>
+            </div>
+            <div id="reportCard">
+                <h3>Boletín</h3>
+                <div id="firstQuarter"></div>
+                <div id="secondQuarter"></div>
+                <div id="finalGrade"></div>
+            </div>
+            <h3>Notas de Modelos y Sistemas</h3>
+            <ul id="grades"></ul>
+            <button id="addGrade">Agregar Calificación</button>
+            <button id="addReportCardGrade">Agregar Nota de Boletín</button>
+        </div>
+    
+        <div id="gradeModal" class="modal">
+            <div class="modal-content">
+                <h2>Agregar Calificación</h2>
+                <select id="gradeType">
+                    <option value="carpeta">Carpeta</option>
+                    <option value="tp">TP</option>
+                    <option value="act">Actividad</option>
+                    <option value="oral">Oral</option>
+                    <option value="exposicion">Exposición</option>
+                    <option value="examen">Examen</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <input type="text" id="otherGradeType" style="display: none;" placeholder="Especificar otro tipo">
+                <input type="number" id="gradeValue" min="1" max="10" step="0.5">
+                <button id="submitGrade">Agregar</button>
+                <button id="cancelGrade">Cancelar</button>
+            </div>
+        </div>
+    
+        <div id="reportCardModal" class="modal">
+            <div class="modal-content">
+                <h2>Agregar Nota de Boletín</h2>
+                <select id="quarter">
+                    <option value="1">1er Cuatrimestre</option>
+                    <option value="2">2do Cuatrimestre</option>
+                </select>
+                <select id="reportCardGrade">
+                    <option value="TEA">TEA</option>
+                    <option value="TEP">TEP</option>
+                    <option value="TED">TED</option>
+                </select>
+                <button id="submitReportCardGrade">Agregar</button>
+                <button id="cancelReportCardGrade">Cancelar</button>
+            </div>
+        </div>
+    
+        <div id="finalGradeModal" class="modal">
+            <div class="modal-content">
+                <h2>Establecer Nota Final</h2>
+                <input type="number" id="finalGradeValue" min="1" max="10" step="0.5" value="7">
+                <button id="submitFinalGrade">Establecer</button>
+                <button id="cancelFinalGrade">Cancelar</button>
+            </div>
+        </div>
+    
+        <div id="behaviorModal" class="modal">
+            <div class="modal-content">
+                <h2>Cambiar Promedio de Conducta</h2>
+                <input type="number" id="behaviorValue" min="1" max="10" step="0.5">
+                <button id="submitBehavior">Cambiar</button>
+                <button id="cancelBehavior">Cancelar</button>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!--<main>
         <section class="full-screen-section initial-section">
             <div class="course-selection">
                 <div class="course-selection-container">
@@ -133,7 +272,7 @@
                 <button id="confirmAddStudent">Agregar</button>
             </div>
         </div>
-        <!-- Modal para Confirmación de Eliminación -->
+        < !-- Modal para Confirmación de Eliminación -- >
         <div id="confirmDeleteModal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeConfirmDeleteModal">&times;</span>
@@ -145,7 +284,7 @@
                 </div>
             </div>
         </div>
-        <!-- Modal para Opciones -->
+        < !-- Modal para Opciones -- >
         <div id="optionsModal" class="modal modal-options">
             <div class="modal-content">
                 <span class="close close-options-modal">&times;</span>
@@ -169,7 +308,7 @@
                 </div>
             </div>
         </div>
-        <!-- Modal para Notas -->
+        < !-- Modal para Notas -- >
         <div id="gradeModal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeGradeModal">&times;</span>
@@ -192,8 +331,8 @@
                 </div>
             </div>
         </div>
-    </main>  
-    <script src="../scripts/profeMenu.js"></script>
+    </main>--> 
+    <script src="../scripts/profeNotas.js"></script>
     <script src="../scripts/Header.js"></script>
 </body>
 </html>
