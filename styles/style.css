@@ -2312,27 +2312,37 @@ main {
 
 /*notificaciones profe*/
 .agregarNotificacion {
-  background-color: red;
   margin: -10px 50px 25px 20px;
   border-collapse: collapse;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  display: flex;
 }
-
 .agregarNotificacion a {
   background-color: var(--btn);
   color: var(--Bcolor);
   padding: 4px 20px;
+  width: 50%;
+  text-align: center;
   text-decoration: none;
+  transition: width 1s ease;
 }
-
+@media screen and (width <= 500px) {
+  .agregarNotificacion a {
+    width: 100%;
+  }
+}
 
 .modalPart3 {
   display: flex;
   flex-direction: column;
-  border-top: 4px solid #ddd;
+  padding-bottom: 16px;
+  border-bottom: 4px solid #ddd;
+}
+.modalPart3 h3 {
+  margin: 10px 0;
 }
 /*******************************/
 /*contenido de multiples modals*/
@@ -2636,6 +2646,19 @@ main {
   }
   .modalContenido {
     margin-left: var(--Wheader);
+  }
+  .seccionCursoMateria {
+    position: relative;
+    width: 260px;
+    transform: translateX(0);
+    margin: 0 auto;
+}
+  .expandirSubHeader {
+    display: none;
+  }
+  .seleccionar table tbody td select {
+    background-color: var(--Qcolor);
+    width: 175px;
   }
 }
 @media screen and (width < 768px) {
