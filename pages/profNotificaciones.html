@@ -6,6 +6,7 @@
     <title>Matias Ferrando - Profesor - E.E.S.T. N°2</title>
     <link rel="icon" href="../img/l.png" type="image/png">
     <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header id="menuHeader">
@@ -19,7 +20,7 @@
                     <li><a href="profMenu.html"><img src="../img/utilidades/casaLight.png" alt="MateriasIMG" class="iconsHeader"> Inicio</a></li>
                     <li><a href="profNota.html"><img src="../img/utilidades/libroLight.png" alt="MateriasIMG" class="iconsHeader"> Notas</a></li>
                     <li><a href="profAsistencia.html"><img src="../img/utilidades/checkUserLight.png" alt="MateriasIMG" class="iconsHeader"> Asistencia</a></li>
-                    <li><a href="profCalendario.html"><img src="../img/utilidades/calendarioLight.png" alt="MateriasIMG" class="iconsHeader"> Calendario</a></li>
+                    <li><a href="profBiblioteca.html"><img src="../img/utilidades/bibliotecaLight.png" alt="MateriasIMG" class="iconsHeader"> Biblioteca</a></li>
                 </ul>
             </nav>
             <div class="confHeader">
@@ -58,34 +59,23 @@
             </div>
         </section>
 
-        <section class="seccionAccesosInicio">
-            <h2>Accesos al contenido</h2>
-            <div class="accesoPart1">
-                <button class="btnsAccesos" id="seccionNotificacionesCel"><img src="../img/utilidades/notificacionLight.png" alt="Notificaciones" class="iconsAcceso"> Notificaciones</button>
-                <button class="btnsAccesos" id="seccionCalendarioCel"><img src="../img/utilidades/calendarioLight.png" alt="Notificaciones" class="iconsAcceso"> Calendario</button>
-            </div>
-        </section>
-
-        <section class="seccionNotificaciones">
-            <h2>Notificaciones
-                <span class="cerrarSeccion" id="cerrarNotificaciones">✖</span>
-            </h2>
-            <div class="contendorNotificaciones" id="contendorNotificaciones"></div>
-        </section>
-
-        <section class="seccionNotificaciones">
+        <section class="seccionSubirNotificaciones">
             <h2>Notificaciones del Profesor</h2>
-            <div class="formularioNotificaciones">
-                <form id="notificationForm">
-                    <textarea id="notificationMessage" required></textarea>
-                    <button type="submit" id="submitNotification">Agregar Notificación</button>
-                    <button type="button" id="cancelNotification">Cancelar</button>
-                    <button type="button" id="deleteNotification" style="display: none;">Eliminar Notificación</button>
-                </form>
+            <div class="contenidoSubirNotificaciones">
+                <div class="formularioNotificaciones">
+                    <form id="notificationForm">
+                        <textarea id="notificationMessage" maxlength="1000" required></textarea>
+                        <div class="notificacionesPanal">
+                            <button type="submit" id="submitNotification"><i class="fas fa-paper-plane"></i> Publicar</button>
+                            <button type="button" id="cancelNotification"><i class="fas fa-times"></i> Cancelar</button>
+                            <button type="button" id="deleteNotification" style="display: none;"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="contendorNotificacionesA" id="contendorNotificaciones"></div>
             </div>
-            <div class="contendorNotificaciones" id="contendorNotificaciones"></div>
         </section>
-        
+
         <div id="deleteConfirmationModal" class="modal">
             <div class="modal-content">
                 <h2>Confirmar eliminación</h2>

@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="notification-timestamp-time">${notification.time}</p>
                         <p class="notification-timestamp-day">${notification.day}</p>
                     </div>
+                    ${showConfigButton ? `<div class="notification-config"><button class="notification-action-btn"><i class="fas fa-cog"></i></button></div>` : ''}
                 </div>
                 <div class="notificacionPart2">
                     <p class="notification-message">${notification.message.replace(/\n/g, '<br>')}</p>
@@ -45,17 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="toggle-read-status oculto">Ver más</button>
                         <button class="toggle-view oculto">Ver menos</button>
                     </div>
-                </div>
-                ${showConfigButton ? `
+                </div>    
+            </div>
+        `}).join('');
+            /*
+            ${showConfigButton ? `
                 <div class="notification-part4">
                     <button class="notification-action-btn">
                         <img src="../img/utilidades/engranaje.png" alt="Conf." class="btnCOnfiguracionDeMensaje">
                     </button>
                 </div>
-                ` : ''}
-            </div>
-        `}).join('');
-
+            ` : ''}
+            */
         addEventListenersToCards();
     }
 
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (notification) {
                     document.getElementById('notificationMessage').value = notification.message;
                     document.getElementById('notificationForm').dataset.editId = notificationId;
-                    document.getElementById('submitNotification').textContent = 'Actualizar Notificación';
+                    document.getElementById('submitNotification').innerHTML = '<i class="fas fa-sync-alt"></i> Actualizar';
                     document.getElementById('deleteNotification').style.display = 'inline-block';
                     document.getElementById('notificationMessage').classList.add('editing');
                 }
@@ -196,8 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('notificationForm');
         form.reset();
         form.dataset.editId = '';
-        document.getElementById('submitNotification').textContent = 'Agregar Notificación';
+        document.getElementById('submitNotification').innerHTML = '<i class="fas fa-paper-plane"></i> Publicar';
         document.getElementById('deleteNotification').style.display = 'none';
         document.getElementById('notificationMessage').classList.remove('editing');
     }
+    
 });

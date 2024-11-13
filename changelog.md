@@ -208,3 +208,43 @@ La estructura de la tabla de biblioteca fue modificada de un diseño complejo de
 
 ![bibliotecaResponsil](img/markdown/userBibliotecaResponsilV1.png)
 - **Diseño del menu del profe**: se diseño el menu del profesor con sus notificaciones y clanedario, es tes calendario a diferencia del de usuario solo marca las faltas, ademas de que el profesor puede añadir notas al dia actual o futuro, puede editar notificaciones con un rango de max 7 semana anterior o eliminar notifiaciones del mismo dia o superior. Esto simulario que el profe sube sus notas al calendario las que  veria el alumno digamos. Las notifiaciones no tienen un filtro ya que solo ve las suyas pero se remplazo por un boton con acceso al apartado de notifiaciones que es donde podra subir estas editarlas o borrarlas. Algunas cosas estan sesacomodadas como este btn de notifiaciones o el modal del calendario del profe.
+
+### 11-11
+- **diseño del panel de notificaciones**: se diseño el panel para adjuntar notificaciones del lado del profesor, este puede subir nuevas notificaciones, cancelarlas en el proceso, editarlas o cancelar esos edits y eliminarlas, solo las notificaciones con un max de 7 dias para atras.
+
+- **creacion de calendario**: se utiliza el mismo sistema del alumno sin las asistencias, ademas de que en las chefas puede agregar notas, del mismo dia en adelante, editar y eliminar las notas max 7 dias para atras al actual. Las opciones predeterminadas para el tipo de nota a subir son:
+  - TP
+  - Examen
+  - Oral
+  - Exposicion
+  - Actividad
+  - Otro. Se debe especificar en otro input que se visualiza  al seleccioar.
+
+- **creacion de asistencias**: Se deiseño el panel para que nome asistencias el profesor, este cuenta con un sub-header donde con un select puede cambiar el mes, con un btn puede tomar asistencia, este habriendo un modal y recorriendo la lista en orden de lo alumnos a los que les pone Presente o Ausente, y este se va aplicando a una cuadrilla. en la misma cuadrilla tienen para poner todos presentes o ausentes, tomar asistencia manulamente o modificar las falta, este seria por si esta ausente y llega tarde por ej.
+- **creacion de notas/calificaciones**: El diseño para que el profesor gestione las calificaciones esta diseñado con la lista de los alumnos del lado drecho, esta cuenta con opciones de filtros, que son:
+  - Todos
+  - Reprobados 1er Cuatrimestre
+  - Reprobados 2do Cuatrimestre
+  - Reprobado ambos Cuatrimestres
+- y con una opcion para garegar nuevos estudiantes.
+- Al Abrir el panel de un alumno haciendo click en el mismo este habre sus datos, un promedio general que se hace mediante otros 3 promedios, Asistencias, Notas y Conducta. Asistencias estaria vinculado a la  cuadrilla de la seccion donde toma asistencia el profesor, nota se calcula con todas las notas del mismo, como tp, carpetas, etc. y el de conducta es un valor modificable por el profesor.
+- Luego se destaca el boletin que este indica primer cuatri, 2do y una ves ambos esten se abilita un 3ro de nota final, en el caso de llevarse un cuatrimestre(TEP, TED) este sale con una opcion para indicar si intesifico o no, osea si dio la materia ya sea en medio del otro cuatrimestre o en diciembre.
+- luego tiene para las notas donde ti ene dos btns, Agregar calificacion y Agregar nota boletin, en calificacion puede agregar con las opciones de
+  - tp
+  - carpeta
+  - examen
+  - oral
+  - exposicion
+  - act.
+  - otro, especificar
+- y una nota numerica del 1 al 10 con numeros decimales solo  de 0,5.
+- Agregar nota boletin puede agregar al primer o segundo cuatrimestre una sola  ves la nota y sus opciones son TEA, TEP, TED
+
+### 12-11
+- **Estilos modal de calendario**: Se diseño la estetica del modal en el que el profesor sube notas al calendario con sus version responsil.
+
+| monitor | pantalla |
+|-|-|
+|![calendarioModalV1](img/markdown/profCalendarioModalV1.png)|![calendarioModalResponsilV1](img/markdown/profCalendarioModalResponsilV1.png)|
+  
+- **Estilos de notificaciones**: Se diseña el

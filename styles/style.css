@@ -2561,25 +2561,181 @@ main {
   appearance: none;
 }
 /**/
-
-
-
-
-
-
-
-
-
-
-
-
 #notificationMessage.editing {
   background-color: #f0f0f0;
 }
 
 
-
-
+/*subir notificaciones profe*/
+.seccionSubirNotificaciones {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.seccionSubirNotificaciones h2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0 15px 10px;
+}
+.contenidoSubirNotificaciones {
+  display: flex;
+  flex-direction: row;
+}
+/*subir notif prof*/
+.formularioNotificaciones {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 75vh;
+  margin: 0 10px 20px 20px;
+}
+.formularioNotificaciones form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.formularioNotificaciones form textarea {
+  border: 2px solid var(--Scolor);
+  resize: none;
+  flex: 2;
+  margin-bottom: 15px;
+  outline: none;
+}
+.notificacionesPanal {
+  display: flex;
+  gap: 20px;
+}
+.notificacionesPanal button {
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 20px;
+  flex: 2;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.notificacionesPanal button:hover {
+  background-color: var(--btnHover);
+}
+.notificacionesPanal button:active {
+  transform: scale(1.025);
+}
+/*ver notif prof*/
+.contendorNotificacionesA {
+  flex: 2;
+  margin: 10px 20px 20px 10px;
+}
+/*4ta parte edit notif prof*/
+.notification-config {
+  user-select: all;
+  pointer-events: all;
+}
+.notification-action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  transition: background-color 0.3s ease;
+}
+.notification-action-btn i {
+  pointer-events: none;
+}
+.notification-action-btn:hover {
+  background-color: var(--btnHover);
+  transform: rotate(180deg);
+}
+.notification-action-btn:active {
+  transform: scale(1.025);
+}
+/************************************************************/
+/************************************************************/
+/************************************************************/
+/*notas/calificaciones del profe*/
+.seccionAlumnosCalificaciones {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.seccionAlumnosCalificaciones h2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0 15px 10px;
+}
+/*filtro*/
+.seccionAlumnosCalificaciones details {
+  margin: -10px 50px 25px 20px;
+  border-collapse: collapse;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.seccionAlumnosCalificaciones details summary {
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  padding: 4px 8px;
+  margin-bottom: 5px;
+}
+.seccionAlumnosCalificaciones details summary:active {
+  background-color: var(--btnHover);
+}
+.btnsFiltrosCalificaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btnsFiltrosCalificaciones button, .listaDeEstudiantes button {
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 20px;
+  flex: 2;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btnsFiltrosCalificaciones button:hover, .listaDeEstudiantes button:hover {
+  background-color: var(--btnHover);
+}
+.btnsFiltrosCalificaciones button:active, .listaDeEstudiantes button:active {
+  transform: scale(1.025);
+}
+/*Lista de pibes*/
+.listaDeEstudiantes { 
+  margin: 0 10px 40px;
+}
+#students {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+#students button {
+  width: calc(100% - 20px);
+}
+#addStudent {
+  margin: 20px 10px 0;
+}
+/*establecer notas/calificaciones*/
+.seccionEstablecerCalificacion {
+  background-color: red;
+  flex: 2;
+}
 
 
 
@@ -2716,13 +2872,35 @@ main {
     width: 260px;
     transform: translateX(0);
     margin: 0 auto;
-}
+  }
   .expandirSubHeader {
     display: none;
   }
   .seleccionar table tbody td select {
     background-color: var(--Qcolor);
     width: 175px;
+  }
+  .contenidoSubirNotificaciones {
+    flex-direction: column;
+  }
+  .formularioNotificaciones {
+    width: calc(100% - 40px);
+    height: auto;
+    margin: 0 20px 40px;
+  } 
+  .notificacionesPanal {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contendorNotificacionesA {
+    margin: 0 20px 40px;
+  }
+  .formularioNotificaciones form textarea {
+    resize: vertical;
+    flex: none;
+    min-height: 100px;
+    height: 250px;
+    max-height: 400px;
   }
 }
 @media screen and (width < 768px) {
@@ -2915,4 +3093,3 @@ main {
   }
 }
 /************/
-

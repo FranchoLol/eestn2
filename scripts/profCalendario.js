@@ -73,6 +73,7 @@ const otraCategoriaInput = document.getElementById("otraCategoria");
 const descripcionInput = document.getElementById("descripcionEvento");
 const guardarEventoBtn = document.getElementById("guardarEvento");
 const fechaSeleccionadaSpan = document.getElementById("fechaSeleccionada");
+const modalPart3 = document.getElementById("modalPart3");
 
 function actualizarNotas(fecha) {
   const notasSeleccionadas = notas[fecha] || [];
@@ -113,9 +114,9 @@ function abrirModal(fecha) {
   hoy.setHours(0, 0, 0, 0);
   
   if (fechaObj >= hoy) {
-    formEvento.style.display = "block";
+    modalPart3.style.display = "block";
   } else {
-    formEvento.style.display = "none";
+    modalPart3.style.display = "none";
   }
 }
 
