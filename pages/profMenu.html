@@ -117,18 +117,22 @@
               <div class="modalPart3">
                 <h3>Agregar/Editar Evento</h3>
                 <form id="formEvento">
-                  <select id="categoriaEvento" required>
-                    <option value="">Seleccione una categoría</option>
-                    <option value="TP">TP</option>
-                    <option value="Examen">Examen</option>
-                    <option value="Oral">Oral</option>
-                    <option value="Exposición">Exposición</option>
-                    <option value="Act.">Act.</option>
-                    <option value="otro">Otro</option>
-                  </select>
-                  <input type="text" id="otraCategoria" placeholder="Especifique otra categoría" style="display: none;">
-                  <input type="text" id="descripcionEvento" placeholder="Descripción del evento" required>
-                  <button type="submit" id="guardarEvento">Guardar Evento</button>
+                    <div class="modalForm">
+                        <div class="formFrag1">
+                            <select id="categoriaEvento" required>
+                                <option value="">Seleccione una categoría</option>
+                                <option value="TP">TP</option>
+                                <option value="Examen">Examen</option>
+                                <option value="Oral">Oral</option>
+                                <option value="Exposición">Exposición</option>
+                                <option value="Act.">Act.</option>
+                                <option value="otro">Otro</option>
+                              </select>
+                              <input type="text" id="otraCategoria" placeholder="Especifique otra categoría">
+                          </div>
+                      <input type="text" id="descripcionEvento" placeholder="Descripción del evento" required>
+                      <button type="submit" id="guardarEvento"><i class="fas fa-save"></i> Guardar</button>
+                    </div>
                 </form>
               </div>
               <div id="modalPart2EventosCalendarioProfesor" class="modalPart2"></div>
@@ -141,3 +145,4 @@
     <script src="../scripts/profCalendario.js"></script>
 </body>
 </html>
+

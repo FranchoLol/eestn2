@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias y Materiales - Profesor</title>
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .profBibliotecaContainer {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .profBibliotecaMaterials, .profBibliotecaMaterialDetails {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .profBibliotecaMaterials {
+            flex: 1;
+        }
+        .profBibliotecaMaterialDetails {
+            flex: 2;
+        }
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .profBibliotecaBtn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+        }
+        .profBibliotecaBtn:hover {
+            background-color: #5a6268;
+        }
+        .profBibliotecaBtn.active {
+            background-color: #007bff;
+        }
+        .profBibliotecaAddMaterial {
+            background-color: #28a745;
+        }
+        .profBibliotecaAddMaterial:hover {
+            background-color: #218838;
+        }
+        .profBibliotecaFormGroup {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"], input[type="time"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .profBibliotecaFileUpload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .profBibliotecaSubmitBtn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .profBibliotecaSubmitBtn:hover {
+            background-color: #0056b3;
+        }
+        .profBibliotecaStudentList {
+            margin-top: 20px;
+        }
+        .profBibliotecaStudentItem {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+        .profBibliotecaContenedorActividades {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .profBibliotecaFrag1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .profBibliotecaFrag2 {
+            margin-bottom: 15px;
+        }
+        .profBibliotecaFrag3 {
+            margin-bottom: 20px;
+        }
+        .profBibliotecaFrag3 a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            margin-top: 10px;
+        }
+        .profBibliotecaFrag3 img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .profBibliotecaFrag4 {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .profBibliotecaConfigBtn {
+            background-color: #ffc107;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .profBibliotecaConfigBtn:hover {
+            background-color: #ffca2c;
+        }
+        .profBibliotecaCancelBtn {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .profBibliotecaCancelBtn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <header id="menuHeader">
+        <div class="index">
+            <div class="userProfile">
+                <img src="../img/perfiles/FerrandoMatias.jpg" class="profileImage" alt="Usuario">
+                <h1 class="userName">Matias Ferrando</h1>
+            </div>
+            <nav class="navHeader">
+                <ul>
+                    <li><a href="profNotificaciones.html"><img src="../img/utilidades/notificacionLight.png" alt="MateriasIMG" class="iconsHeader"> Notificaciones</a></li>
+                    <li><a href="profNota.html"><img src="../img/utilidades/libroLight.png" alt="MateriasIMG" class="iconsHeader"> Notas</a></li>
+                    <li><a href="profAsistencia.html"><img src="../img/utilidades/checkUserLight.png" alt="MateriasIMG" class="iconsHeader"> Asistencia</a></li>
+                    <li><a href="profCalendario.html"><img src="../img/utilidades/calendarioLight.png" alt="MateriasIMG" class="iconsHeader"> Calendario</a></li>
+                </ul>
+            </nav>
+            <div class="confHeader">
+                <button class="btnExit" id="btnExit"><img src="../img/utilidades/cerrarSesionLight.png" alt="exitIMG" class="iconsHeader"> Salir</button>
+            </div>
+        </div>
+        <label class="btnMenuHeader" for="ckbMenuHeader">
+            <input type="checkbox" id="ckbMenuHeader">
+            <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
+        </label>
+    </header>
+
+    <main>
+        <div class="profBibliotecaContainer">
+            <div class="profBibliotecaMaterials">
+                <h2>Materiales - Modelos y Sistemas</h2>
+                <button class="profBibliotecaBtn profBibliotecaAddMaterial" id="addMaterialBtn">+ Nuevo trabajo</button>
+                <div id="profBibliotecaMaterialsList"></div>
+            </div>
+
+            <div class="profBibliotecaMaterialDetails" id="profBibliotecaMaterialDetails">
+                <div id="profBibliotecaMaterialContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/profBiblioteca.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let students = [];
     let currentMonth = new Date().getMonth();
     let currentYear = new Date().getFullYear();
+    let currentStudentIndex = 0;
 
     const monthSelect = document.getElementById('monthSelect');
     const bulkActions = document.getElementById('bulkActions');
@@ -15,6 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const lateBtn = document.getElementById('lateBtn');
     const absentBtn = document.getElementById('absentBtn');
     const cancelBtn = document.getElementById('cancelBtn');
+
+    const quickAttendanceBtn = document.getElementById('quickAttendanceBtn');
+    const quickAttendanceModal = document.getElementById('quickAttendanceModal');
+    const quickModalStudentName = document.getElementById('quickModalStudentName');
+    const quickModalDate = document.getElementById('quickModalDate');
+    const quickPresentBtn = document.getElementById('quickPresentBtn');
+    const quickAbsentBtn = document.getElementById('quickAbsentBtn');
 
     let selectedStudent = null;
     let selectedDate = null;
@@ -55,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderAttendanceTable() {
         const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
         const today = new Date();
-        const isCurrentMonth = currentMonth === today.getMonth() && currentYear === today.getFullYear();
+        const isCurrentMonth = currentMonth === today.getMonth() && currentYear === today.getFullYear(); // Permite edición solo en el mes actual
+
     
         // Verifica si el mes actual es enero (0) o febrero (1)
         const isBlockedMonth = currentMonth === 0 || currentMonth === 1;
@@ -65,34 +74,38 @@ document.addEventListener('DOMContentLoaded', () => {
         bulkAbsent.innerHTML = '<th style="text-align: left; padding-left: 20px;">Todos Ausentes</th>';
         dateRow.innerHTML = '<th style="text-align: left; padding-left: 20px;">Fecha</th>';
     
+        const dayInitials = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+    
         for (let i = 1; i <= daysInMonth; i++) {
             const date = new Date(currentYear, currentMonth, i);
-            const isWeekend = date.getDay() === 0 || date.getDay() === 6; // Verifica si es fin de semana (domingo o sábado)
-            const isFriday = date.getDay() === 5; // Verifica si es viernes
+            const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+            const isFriday = date.getDay() === 5;
             const dateString = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
     
-            // Habilitar celdas solo si es viernes y el mes no está bloqueado
-            const isEditable = !isBlockedMonth && isCurrentMonth && isFriday; // Solo habilitar viernes si no es enero ni febrero
+            const isEditable = !isBlockedMonth && isCurrentMonth && isFriday;
     
             // Cabecera para cada día
             bulkActions.innerHTML += `<th>${isFriday && !isBlockedMonth ? `<input type="checkbox" class="bulk-checkbox present" data-date="${dateString}" ${isEditable ? '' : 'disabled'}>` : ''}</th>`;
             bulkAbsent.innerHTML += `<th>${isFriday && !isBlockedMonth ? `<input type="checkbox" class="bulk-checkbox absent" data-date="${dateString}" ${isEditable ? '' : 'disabled'}>` : ''}</th>`;
-            dateRow.innerHTML += `<th>${i}</th>`;
+            dateRow.innerHTML += `
+                <th>
+                    <div>${dayInitials[date.getDay()]}</div>
+                    <div>${i}</div>
+                </th>`;
         }
     
         // Generar filas para cada estudiante
-        studentsBody.innerHTML = students.map(student => {
-            let row = `<tr><td>${student.name}</td>`;
+        studentsBody.innerHTML = students.map((student, index) => {
+            let row = `<tr><td>${index + 1}. ${student.name}</td>`;
     
             for (let i = 1; i <= daysInMonth; i++) {
                 const date = new Date(currentYear, currentMonth, i);
-                const isWeekend = date.getDay() === 0 || date.getDay() === 6; // Verifica si es fin de semana (domingo o sábado)
-                const isFriday = date.getDay() === 5; // Verifica si es viernes
-                const dateString = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
+                const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+                const isFriday = date.getDay() === 5;
+                const dateString = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`; 
                 let attendance = student.attendance[dateString] || '';
     
-                // Solo permitir edición si es viernes y el mes no está bloqueado
-                const isEditable = !isBlockedMonth && isCurrentMonth && isFriday; // Solo editable en viernes si no es enero ni febrero
+                const isEditable = !isBlockedMonth && isCurrentMonth && isFriday;
                 if (currentMonth < today.getMonth() || (isCurrentMonth && date <= today)) {
                     attendance = attendance || getRandomAttendance(0.8, 0.1);
                     student.attendance[dateString] = attendance;
@@ -104,13 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             data-student="${student.id}"
                             data-date="${dateString}"
                             ${isWeekend || !isEditable ? 'aria-disabled="true"' : ''}>
-                            ${isFriday && !isBlockedMonth ? attendance : ''}
-                        </td>`;
+                            ${isFriday && !isBlockedMonth ? attendance : ''}</td>`;
             }
             row += '</tr>';
             return row;
         }).join('');
-    
+
         // Event listeners para celdas y checkboxes de acciones masivas
         document.querySelectorAll('.attendance-cell:not(.weekend):not(.disabled)').forEach(cell => {
             cell.addEventListener('click', openAttendanceModal);
@@ -120,8 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
             checkbox.addEventListener('change', handleBulkAction);
         });
     }
-    
-    
     
     function getRandomAttendance(presentProbability = 0.7, lateProbability = 0.1) {
         const rand = Math.random();
@@ -151,20 +161,127 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleBulkAction(e) {
         const checkbox = e.target;
-        const type = checkbox.classList.contains('present') ? 'P' : 'A'; // Verifica si es "present" o "absent"
+        const type = checkbox.classList.contains('present') ? 'P' : 'A';
         
-        // Actualizar la asistencia de todos los estudiantes para esa fecha
         const date = checkbox.dataset.date;
     
         students.forEach(student => {
             if (checkbox.checked) {
-                student.attendance[date] = type;  // Si el checkbox está marcado, asignar el tipo correspondiente
+                student.attendance[date] = type;
             } else {
-                delete student.attendance[date];  // Si no está marcado, eliminar la asistencia para la fecha
+                delete student.attendance[date];
             }
         });
     
-        // Volver a renderizar la tabla para reflejar los cambios
         renderAttendanceTable();
     }
+
+    quickAttendanceBtn.addEventListener('click', openQuickAttendanceModal);
+
+    // Función para abrir el primer modal de selección de fecha
+function openQuickAttendanceModal() {
+    const availableDates = [];
+    const daysInMonth = new Date(currentYear, currentMonth + 2, 0).getDate();
+
+    // Encuentra todos los viernes del mes actual
+    for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(currentYear, currentMonth, day);
+        if (date.getDay() === 5) { // 5 representa el viernes
+            const dateString = date.toISOString().split('T')[0];
+
+            // Verifica si todos los estudiantes han registrado su asistencia para esta fecha
+            const allAttendanceTaken = students.every(student => student.attendance[dateString]);
+
+            // Si no todos los estudiantes han registrado su asistencia, agregamos la fecha
+            if (!allAttendanceTaken) {
+                availableDates.push(dateString);
+            }
+        }
+    }
+
+    // Genera los botones de fecha disponibles
+    const dateButtons = availableDates.map(dateString => {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        return `<button class="date-select-btn" data-date="${dateString}">${day + 1} de ${date.toLocaleString('es-ES', { month: 'long' })}</button>`;
+    }).join('');
+
+    const dateSelector = document.getElementById('dateSelector');
+    dateSelector.innerHTML = dateButtons;
+
+    // Abre el modal de selección de fecha
+    const dateSelectorModal = document.getElementById('dateSelectorModal');
+    dateSelectorModal.style.display = 'block';
+
+    // Agrega eventos a los botones de fecha para iniciar la asistencia
+    document.querySelectorAll('.date-select-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            selectedDate = e.target.dataset.date;
+            dateSelectorModal.style.display = 'none'; // Cierra el modal de selección de fecha
+            startQuickAttendance(); // Inicia el proceso de asistencia rápida
+        });
+    });
+}
+
+   // Función para iniciar el proceso de asistencia rápida
+function startQuickAttendance() {
+    currentStudentIndex = 0;
+    updateQuickAttendanceModalContent();
+    quickAttendanceModal.style.display = 'block'; // Abre el modal de asistencia rápida
+}
+    
+    function showNextStudent() {
+        if (currentStudentIndex < students.length) {
+            const student = students[currentStudentIndex];
+            quickModalStudentName.textContent = `${currentStudentIndex + 1}. ${student.name}`;
+            quickModalDate.textContent = new Date(selectedDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+        } else {
+            quickAttendanceModal.style.display = 'none';
+            renderAttendanceTable();
+        }
+    }
+    
+    function quickUpdateAttendance(status) {
+        if (currentStudentIndex < students.length) {
+            const student = students[currentStudentIndex];
+            student.attendance[selectedDate] = status;
+            currentStudentIndex++;
+            updateQuickAttendanceModalContent(); // Muestra el siguiente estudiante
+        }
+    }
+
+    function updateQuickAttendanceModalContent() {
+        const student = students[currentStudentIndex];
+        if (student) {
+            // Actualiza el contenido del modal de asistencia rápida con el nombre del estudiante y la fecha
+            document.getElementById('quickModalStudentName').textContent = `${currentStudentIndex + 1}. ${student.name}`;
+            document.getElementById('quickModalDate').textContent = new Date(selectedDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // Asegura que los botones tengan sus eventos actualizados
+            document.getElementById('quickPresentBtn').onclick = () => quickUpdateAttendance('P');
+            document.getElementById('quickAbsentBtn').onclick = () => quickUpdateAttendance('A');
+        } else {
+            quickAttendanceModal.style.display = 'none'; // Cierra el modal si no hay más estudiantes
+            renderAttendanceTable();
+        }
+    }
+
+
+
+    
+    const closeButtons = document.querySelectorAll('.cerrarModals');
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal');
+        modal.style.display = 'none'; // Oculta el modal
+        if (modal === dateSelectorModal && selectedDate) {
+            // Asegúrate de que la fecha seleccionada no se pierda si se cierra el modal
+            console.log('Fecha seleccionada:', selectedDate); // La fecha seleccionada se mantiene
+        }
+    });
+});
+
+    
+    
+    
 });

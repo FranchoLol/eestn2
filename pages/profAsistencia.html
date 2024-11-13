@@ -98,6 +98,7 @@
         <div class="controls">
             <label for="monthSelect">Seleccione el mes:</label>
             <select id="monthSelect"></select>
+            <button id="quickAttendanceBtn">Tomar Asistencia Rápida</button>
         </div>
         <table id="attendanceTable">
             <thead>
@@ -116,11 +117,32 @@
         <div id="attendanceModal" class="modal">
             <div class="modal-content">
                 <h2 id="modalStudentName"></h2>
+                <span class="cerrarModals">✖</span>
                 <p id="modalDate"></p>
                 <button id="presentBtn">Presente</button>
                 <button id="lateBtn">Tarde</button>
                 <button id="absentBtn">Ausente</button>
                 <button id="cancelBtn">Cancelar</button>
+            </div>
+        </div>
+        <div id="dateSelectorModal" class="modal">
+            <div class="modal-content">
+                <div class="modalPart1">
+                    <h2>Seleccione la fecha para tomar asistencia</h2>
+                    <span class="cerrarModals">✖</span>
+            </div>
+                <div id="dateSelector"></div>
+            </div>
+        </div>
+        <div id="quickAttendanceModal" class="modal">
+            <div class="modal-content">
+                <div class="modalPart1">
+                <h2 id="quickModalStudentName"></h2>
+                <span class="cerrarModals">✖</span>
+            </div>
+                <p id="quickModalDate"></p>
+                <button id="quickPresentBtn">Presente (P)</button>
+                <button id="quickAbsentBtn">Ausente (A)</button>
             </div>
         </div>
     </main>

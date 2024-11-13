@@ -84,10 +84,10 @@ function actualizarNotas(fecha) {
   listaNotas.innerHTML = notasSeleccionadas
     .map((nota, index) => `
       <div class="note-item">
+        <button class="eliminarNota" data-index="${index}"><i class="fas fa-trash-alt"></i></button>
+        <button class="editarNota" data-index="${index}"><i class="fas fa-edit"></i></button>
         <strong>${nota.categoria}:</strong> ${nota.descripcion}
         ${puedeEditarEliminar ? `
-          <button class="editarNota" data-index="${index}">Editar</button>
-          <button class="eliminarNota" data-index="${index}">Eliminar</button>
         ` : ''}
       </div>
     `).join("");
@@ -134,7 +134,7 @@ function editarNota(fecha, index) {
     otraCategoriaInput.value = nota.categoria;
   }
   descripcionInput.value = nota.descripcion;
-  guardarEventoBtn.textContent = "Actualizar Evento";
+  guardarEventoBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Actualizar';
   guardarEventoBtn.dataset.editIndex = index;
 }
 
@@ -171,9 +171,23 @@ categoriaSelect.addEventListener("change", () => {
 
 formEvento.addEventListener("submit", (e) => {
   e.preventDefault();
-  const categoria = categoriaSelect.value === "otro" ? otraCategoriaInput.value : categoriaSelect.value;
-  const descripcion = descripcionInput.value;
+  const categoria = categoriaSelect.value === "otro" ? otraCategoriaInput.value.trim() : categoriaSelect.value;
+  const descripcion = descripcionInput.value.trim();
   const editIndex = guardarEventoBtn.dataset.editIndex;
+
+  // Verificar si "Otro" está vacío
+  if (categoriaSelect.value === "otro" && categoria === "") {
+    alert("Por favor, especifica una categoría en el campo de 'Otro'.");
+    otraCategoriaInput.focus();
+    return; // Termina el evento sin guardar
+  }
+
+  // Verificar si la descripción está vacía
+  if (!descripcion) {
+    alert("Por favor, proporciona una descripción para el evento.");
+    descripcionInput.focus();
+    return; // Termina el evento sin guardar
+  }
 
   if (!fechaSeleccionada) return;
 
@@ -190,7 +204,7 @@ formEvento.addEventListener("submit", (e) => {
   if (editIndex !== undefined) {
     notas[fechaSeleccionada][editIndex] = nuevoEvento;
     delete guardarEventoBtn.dataset.editIndex;
-    guardarEventoBtn.textContent = "Guardar Evento";
+    guardarEventoBtn.innerHTML = '<i class="fas fa-save"></i> Guardar';
   } else {
     notas[fechaSeleccionada].push(nuevoEvento);
   }
@@ -200,6 +214,7 @@ formEvento.addEventListener("submit", (e) => {
   formEvento.reset();
   otraCategoriaInput.style.display = "none";
 });
+
 
 // Initialize the calendar
 renderizarCalendario();

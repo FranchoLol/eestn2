@@ -2308,6 +2308,8 @@ main {
 }
 .modalPart2 {
   margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 /*notificaciones profe*/
@@ -2329,12 +2331,8 @@ main {
   text-decoration: none;
   transition: width 1s ease;
 }
-@media screen and (width <= 500px) {
-  .agregarNotificacion a {
-    width: 100%;
-  }
-}
 
+/*parte 3 del modal - ingreso de notas del profe*/
 .modalPart3 {
   display: flex;
   flex-direction: column;
@@ -2344,6 +2342,72 @@ main {
 .modalPart3 h3 {
   margin: 10px 0;
 }
+.modalForm {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.formFrag1 {
+  display: flex;
+  flex-direction: column;
+}
+.formFrag1 select {
+  padding: 4px 10px 4px 0;
+  outline: none;
+  background-color: var(--Qcolor);
+  border: none;
+  font-size: 12pt;
+}
+.formFrag1 input {
+  display: none;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12pt;
+}
+.modalForm input {
+  border: none;
+  padding: 4px 8px;
+  font-size: 12pt;
+  flex: 2;
+}
+.modalForm button {
+  border: none;
+  cursor: pointer;
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  border-radius: 7.5px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding: 4px 20px;
+  gap: 5px;
+}
+.editarNota, .eliminarNota {
+  border: none;
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.editarNota i, .eliminarNota i {
+  pointer-events: none;
+}
+@media screen and (width < 1105px) {
+  .modalForm {
+    flex-direction: column;
+  }
+  .formFrag1 input {
+    margin-top: 15px;
+  }
+  .modalForm button {
+    padding: 8px 20px;
+  }
+}
+
+
+
+
+
 /*******************************/
 /*contenido de multiples modals*/
 /***************************************/
@@ -2717,6 +2781,11 @@ main {
   .calendarioDias .asistencia {
     bottom: 18px;
     left: 4px;
+  }
+}
+@media screen and (width <= 500px) {
+  .agregarNotificacion a {
+    width: 100%;
   }
 }
 @media screen and (width < 485px) {
