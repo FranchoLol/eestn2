@@ -15,7 +15,8 @@
         "message": "El viernes 06 de sep se entrega el TP de prototipos no operacionales.<br><br>Saludos.",
         "read": true,
         "time": "14:20 PM",
-        "day": "30 Aug 2024"
+        "day": "30 Ago 2024",
+        "vistos": "29"
     },
     {
         "img": "../img/perfiles/Matias.jpg",
@@ -24,7 +25,7 @@
         "message": "Familia: el dia viernes 30 de agosto se entregaran los bolsones de alimentos a partir de las 14Hs",
         "read": true,
         "time": "14:00 PM",
-        "day": "27 Aug 2024"
+        "day": "27 Ago 2024"
     },
     {
         "img": "../img/perfiles/MiguelYbarra.jpg",
@@ -33,7 +34,7 @@
         "message": "Listado de fórmulas: <br> - Ecuación cuadrática: \\( \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\)\n <br> - Límite cuando 'x' tiende a un valor 'c': \\( \\lim_{x \\to c} f(x) = L \\) <br> - Logaritmo de un producto: \\( \\log_b(x \\cdot y) = \\log_b(x) + \\log_b(y) \\)\n <br> - Logaritmo de una división: \\( \\log_b \\left(\\frac{x}{y}\\right) = \\log_b(x) - \\log_b(y) \\)\n <br> - Logaritmo de una potencia: \\( \\log_b(x^k) = k \\cdot \\log_b(x) \\)\n <br> - Derivada de la función logarítmica natural: \\( \\frac{d}{dx} \\ln(x) = \\frac{1}{x} \\)\n",
         "read": false,
         "time": "14:52 PM",
-        "day": "26 Aug 2024"
+        "day": "26 Ago 2024"
     },
     {
         "img": "../img/perfiles/MiguelYbarra.jpg",
@@ -42,7 +43,7 @@
         "message": "Buenas tardes. En el día de hoy,  lunes 26, no podré asistir a clase. <br> Les agrego una actividad complementaria a la realizada el miércoles pasado. De la actividad complementaria deben hacer del 34 al 40, y el 47 y 48. <br> Los alumnos que faltaron el miércoles pasado deben realizar las dos actividades. <br> El miércoles 28 es el recuperadores de Funciones logarítmicas.",
         "read": true,
         "time": "14:43 PM",
-        "day": "26 Aug 2024"
+        "day": "26 Ago 2024"
     },
     {
         "img": "../img/perfiles/Matias.jpg",
@@ -51,7 +52,7 @@
         "message": "Familia: les comentamos que se está trabajando con los estudiantes el Acuerdo Institucional de Convivencia, las normas y obligaciones de todos los integrantes de la comunidad educativa y que además la próxima semana se realizará la jornada sobre ESI en todos los cursos.",
         "read": false,
         "time": "14:00 PM",
-        "day": "20 Aug 2024"
+        "day": "20 Ago 2024"
     },
     {
         "img": "../img/perfiles/FerrandoMatias.jpg",
@@ -60,7 +61,8 @@
         "message": "Recuerden que el 31/08 es el ultimo dia para entregar el TP de prototipos no operacionales.<br><br>Saludos.",
         "read": true,
         "time": "15:00 PM",
-        "day": "16 Aug 2024"
+        "day": "16 Ago 2024",
+        "vistos": "35"
     },
     {
         "img": "../img/perfiles/GustaboPereira.jpg",
@@ -69,6 +71,6 @@
         "message": "Hola chicos,<br><br>Les dejo el TP de 'vaca muerta', se realiza max en grupos de 4.<br>Buscar información en internet y elaborar el siguiente trabajo práctico. Aquellos cursos en los que se disponga de classroom, la entrega del TP se hará por esa vía. (El trabajo es grupal,no más de 4 integrantes)<br>No olvidar realizar una adecuada carátula de presentación, será tenida en cuenta en la calificación final del TP, al igual que las imágenes y mapas (Solo para los cursos que cuentan con classroom)",
         "read": true,
         "time": "13:11 PM",
-        "day": "31 Aug 2024"
+        "day": "31 Ago 2024"
     }
 ]
