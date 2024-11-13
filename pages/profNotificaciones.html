@@ -76,12 +76,18 @@
             </div>
         </section>
 
-        <div id="deleteConfirmationModal" class="modal">
-            <div class="modal-content">
-                <h2>Confirmar eliminación</h2>
+
+        <div class="modal oculto" id="deleteConfirmationModal">
+            <div class="modalContenido">
+                <div class="modalPart1">
+                    <h2>Confirmar eliminación</h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
                 <p>¿Está seguro de que desea eliminar esta notificación?</p>
-                <button id="confirmDelete">Sí, eliminar</button>
-                <button id="cancelDelete">Cancelar</button>
+                <div class="modalPartBtns">
+                    <button id="confirmDelete"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                    <button id="cancelDelete"><i class="fas fa-times"></i> Cancelar</button>
+                </div>
             </div>
         </div>
 

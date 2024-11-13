@@ -2311,6 +2311,33 @@ main {
   max-height: 200px;
   overflow-y: auto;
 }
+/*btns de modals*/
+.modalPartBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+.modalPartBtns button {
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 20px;
+  flex: 2;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.modalPartBtns button:hover {
+  background-color: var(--btnHover);
+}
+.modalPartBtns button:active {
+  transform: scale(1.025);
+}
+
+
+
+
 
 /*notificaciones profe*/
 .agregarNotificacion {
