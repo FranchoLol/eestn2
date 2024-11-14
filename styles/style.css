@@ -2065,7 +2065,7 @@ main {
           box-shadow: 0 0 5px 0 #bbb;
 }
 .bibliotecaFrag3 a img {
-  width: 60px;
+  width: 160px;
   -webkit-border-radius: 10px 0 0 10px;
      -moz-border-radius: 10px 0 0 10px;
           border-radius: 10px 0 0 10px;
@@ -2313,25 +2313,57 @@ main {
 }
 .modalPart2ProfNotas {
   margin: 10px 0 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   gap: 20px;
 }
 .modalPart2ProfNotas input{
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   outline: none;
   border: 2px solid var(--Scolor);
   max-height: 22px;
   font-size: 12pt;
 }
 .modalPart2ProfNotas input[type="number"] {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   max-width: 50px;
 }
 .modalPart2ProfNotasSub {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   gap: 10px;
 }
 .modalPart2ProfNotasSub select, .modalPart2ProfNotas select {
@@ -2349,26 +2381,53 @@ main {
 
 /*btns de modals*/
 .modalPartBtns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 15px;
 }
 .modalPartBtns button {
   background-color: var(--btn);
   color: var(--Bcolor);
   border: none;
-  border-radius: 6px;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
   padding: 6px 20px;
-  flex: 2;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .modalPartBtns button:hover {
   background-color: var(--btnHover);
 }
 .modalPartBtns button:active {
-  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+     -moz-transform: scale(1.025);
+      -ms-transform: scale(1.025);
+       -o-transform: scale(1.025);
+          transform: scale(1.025);
 }
 
 
@@ -2383,6 +2442,10 @@ main {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .agregarNotificacion a {
@@ -2392,13 +2455,26 @@ main {
   width: 50%;
   text-align: center;
   text-decoration: none;
+  -webkit-transition: width 1s ease;
+  -o-transition: width 1s ease;
+  -moz-transition: width 1s ease;
   transition: width 1s ease;
 }
 
 /*parte 3 del modal - ingreso de notas del profe*/
 .modalPart3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-bottom: 16px;
   border-bottom: 4px solid #ddd;
 }
@@ -2406,13 +2482,33 @@ main {
   margin: 10px 0;
 }
 .modalForm {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   gap: 16px;
 }
 .formFrag1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .formFrag1 select {
   padding: 4px 10px 4px 0;
@@ -2431,17 +2527,31 @@ main {
   border: none;
   padding: 4px 8px;
   font-size: 12pt;
-  flex: 2;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
 }
 .modalForm button {
   border: none;
   cursor: pointer;
   background-color: var(--btn);
   color: var(--Bcolor);
-  border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+     -moz-border-radius: 7.5px;
+          border-radius: 7.5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
   justify-items: center;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 4px 20px;
   gap: 5px;
 }
@@ -2450,14 +2560,22 @@ main {
   background-color: var(--btn);
   color: var(--Bcolor);
   padding: 4px 10px;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
 }
 .editarNota i, .eliminarNota i {
   pointer-events: none;
 }
 @media screen and (width < 1105px) {
   .modalForm {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .formFrag1 input {
     margin-top: 15px;
@@ -2468,22 +2586,63 @@ main {
 }
 /*asistencias prof*/
 .seccionTomaAsistenciaProf {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin: 15px 20px 40px;
 }
 .controls {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 40px;
 }
 .mesSelecAsistencia {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   white-space: nowrap;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .mesSelecAsistencia select {
   width: 240px;
@@ -2493,15 +2652,25 @@ main {
   color: var(--Bcolor);
   border: none;
   padding: 10px 40px;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .controls button:hover {
   background-color: var(--btnHover);
 }
 .controls button:active {
-  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+     -moz-transform: scale(1.025);
+      -ms-transform: scale(1.025);
+       -o-transform: scale(1.025);
+          transform: scale(1.025);
 }
 /*calndario asistencia prof*/
 .tablaMobileResponzive {
@@ -2521,31 +2690,54 @@ main {
   width: 25px;
   height: 25px;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   overflow: hidden;
 }
 .tablaAsistenciasDelProfe th {
   background-color: var(--Scolor);
   color: var(--Bcolor);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .tablaAsistenciasDelProfe tr:nth-child(odd):nth-child(n) {
   background-color: #d1d1d1;
 }
 .tablaAsistenciasDelProfe tr td:nth-child(2) {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+       -moz-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 .tablaAsistenciasDelProfe tr td:nth-child(1) {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .tablaAsistenciasDelProfe .weekend {
   background-color: var(--texto);
 }
 .bulk-action {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .bulk-action input {
   margin: 0 2px;
@@ -2563,10 +2755,24 @@ main {
     height: 30px;
   }
   .controls {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     gap: 10px;
-    align-items: start;
+    -webkit-box-align: start;
+    -webkit-align-items: start;
+       -moz-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
   }
 }
 /***************************/
@@ -2574,15 +2780,39 @@ main {
 /***************************/
 /*biblioiteca profe*/
 .seccionBibliotecaProfe {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 /*seleccion de materiales*/
 .profBibliotecaMaterials {
   width: 30%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   
 }
 .profBibliotecaMaterials h2 {
@@ -2593,11 +2823,28 @@ main {
   margin: 10px 0 15px 10px;
 }
 .panalDeBliotecaProf {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex: 2;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   margin: 0 10px 20px 20px;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 #profBibliotecaMaterialsList {
   max-height: 65vh;
@@ -2606,22 +2853,33 @@ main {
 /*btns de trabajos*/
 .profBibliotecaBtn {
   display: block;
+  width: -webkit-calc(100% - 10px);
+  width: -moz-calc(100% - 10px);
   width: calc(100% - 10px);
   padding: 8px 24px;
   margin-bottom: 10px;
   background-color: var(--btn);
   color: var(--Bcolor);
   border: none;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
   cursor: pointer;
   text-align: left;
+  -webkit-transition: background-color .3s ease;
+  -o-transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease;
   transition: background-color .3s ease;
 }
 .profBibliotecaBtn:hover {
   background-color: var(--btnHover);
 }
 .profBibliotecaBtn.active {
-  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+     -moz-transform: scale(1.025);
+      -ms-transform: scale(1.025);
+       -o-transform: scale(1.025);
+          transform: scale(1.025);
 }
 /*btn new job*/
 .profBibliotecaAddMaterial {
@@ -2632,19 +2890,49 @@ main {
 }
 /**/
 .profBibliotecaMaterialDetails {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
+
+
 .profBibliotecaContenedorActividades {
-  border-radius: 12px;
+  -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
   padding: 20px;
   margin: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .profBibliotecaFrag1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0;
 }
 .profBibliotecaFrag1 h2 {
@@ -2657,10 +2945,23 @@ main {
   padding: 4px 8px;
   font-size: 25pt;
   font-weight: bold;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
   cursor: pointer;
+  -webkit-transition: background-color .3s ease;
+  -o-transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease;
   transition: background-color .3s ease;
 }
 .profBibliotecaFrag1 button:hover {
@@ -2709,7 +3010,10 @@ main {
 }
 .profBibliotecaStudentItem a {
   white-space: wrap;
-  hyphens: auto;
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
   margin: 10px 0 0 0;
 }
 .profBibliotecaFrag3 a img, .profBibliotecaStudentItem a img {
@@ -2730,14 +3034,30 @@ main {
   margin: 15px 15px 20px;
 }
 #profBibliotecaStudentList {
+  display: -ms-grid;
   display: grid;
   gap: 10px;
+  -ms-grid-columns: 1fr 10px 1fr;
   grid-template-columns: repeat(2, 1fr);
 }
 .profBibliotecaStudentItem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*btns de  editar biblioteca prof*/
 .profBibliotecaConfigBtn {
@@ -2746,7 +3066,9 @@ main {
   font-weight: bold;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
   cursor: pointer;
   margin-top: 20px;
 }
@@ -2761,29 +3083,48 @@ main {
 .profBibliotecaFormGroup {
   margin-bottom: 10px;
 }
-label {
+#profBibliotecaConfigForm label,
+#profBibliotecaNewMaterialForm label {
   display: block;
   margin-bottom: 4px;
 }
-input[type="text"], input[type="date"], input[type="time"], textarea {
+#profBibliotecaConfigForm input[type="text"],
+#profBibliotecaConfigForm input[type="date"],
+#profBibliotecaConfigForm input[type="time"],
+#profBibliotecaConfigForm textarea,
+#profBibliotecaNewMaterialForm input[type="text"],
+#profBibliotecaNewMaterialForm input[type="date"],
+#profBibliotecaNewMaterialForm input[type="time"],
+#profBibliotecaNewMaterialForm textarea {
   width: 100%;
   padding: 8px;
   border: 2px solid var(--Scolor);
   outline: none;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
 }
 
 .dateTimeContainer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 10px;
 }
 
 .dateTimeContainer input[type="date"],
 .dateTimeContainer input[type="time"] {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
-textarea {
+.profBibliotecaFormGroup textarea,
+#profBibliotecaNewMaterialForm textarea {
   height: 100px;
   resize: vertical;
 }
@@ -2800,7 +3141,9 @@ textarea {
 .profBibliotecaCancelBtn {
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
   cursor: pointer;
   color: white;
 }
@@ -2826,7 +3169,9 @@ textarea {
   background-color: #f8f9fa;
   padding: 10px;
   margin-bottom: 5px;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
 }
 
 
@@ -2835,28 +3180,7 @@ textarea {
 
 
 
-/*******************************/
-/*contenido de multiples modals*/
-/***************************************/
-/*contenido modal user calendario notas*/
-/*nada*/
 
-/*contenido modal user biblioteca* /
-.tablaModalBibliotecaUser {
-  width: 100%;
-  border-collapse: collapse;
-}
-.tablaModalBibliotecaUser th,
-.tablaModalBibliotecaUser td {
-  padding: 8px;
-  border: 1px solid #ddd;
-}
-.tablaModalBibliotecaUser th {
-  text-align: left;
-}
-.tablaModalBibliotecaUser tr:nth-of-type(even) {
-  background-color: #f9f9f9;
-}*/
 
 
 
@@ -2909,7 +3233,7 @@ textarea {
   position: fixed;
   overflow: hidden; 
   right: 0;
-  width: 400px;
+  width: 500px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -2933,7 +3257,7 @@ textarea {
   -moz-transition: transform 1s ease-in-out, -moz-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
   transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out, -moz-transform 1s ease-in-out, -o-transform 1s ease-in-out;
-  z-index: 10;
+  z-index: 999;
 }
 .expandirSubHeader {
   display: -webkit-box;
@@ -2956,7 +3280,7 @@ textarea {
 .iconSubHeader {
   width: auto;
   height: 45px;
-  margin: 0 10px 0 4px;
+  margin: 2px 10px 2px 4px;
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: -webkit-transform 0.5s ease-in-out;
   -o-transition: -o-transform 0.5s ease-in-out;
@@ -2971,11 +3295,33 @@ textarea {
 }
 .seleccionar {
   color: var(--Bcolor);
-  margin: 3px 10px 3px 5px;
+  margin: 2px 10px 2px 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-.seleccionar table tbody td select {
+.seleccionar ul {
+  list-style-type: none;
+  margin: 2px 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 15px;
+}
+.seleccionar ul li select {
   background-color: var(--Qcolor);
-  width: 250px;
+  width: 200px;
   -webkit-border-radius: 0 5px 5px 0;
      -moz-border-radius: 0 5px 5px 0;
           border-radius: 0 5px 5px 0;
@@ -2987,17 +3333,31 @@ textarea {
   -moz-appearance: none;
   appearance: none;
 }
+
 /**/
 #notificationMessage.editing {
   background-color: #f0f0f0;
 }
 
-
 /*subir notificaciones profe*/
 .seccionSubirNotificaciones {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .seccionSubirNotificaciones h2 {
   -webkit-user-select: none;
@@ -3007,31 +3367,77 @@ textarea {
   margin: 10px 0 15px 10px;
 }
 .contenidoSubirNotificaciones {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 /*subir notif prof*/
 .formularioNotificaciones {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 40%;
   height: 75vh;
   margin: 0 10px 20px 20px;
 }
 .formularioNotificaciones form {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .formularioNotificaciones form textarea {
   border: 2px solid var(--Scolor);
   resize: none;
-  flex: 2;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   margin-bottom: 15px;
   outline: none;
 }
 .notificacionesPanal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 20px;
 }
@@ -3039,40 +3445,76 @@ textarea {
   background-color: var(--btn);
   color: var(--Bcolor);
   border: none;
-  border-radius: 6px;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
   padding: 6px 20px;
-  flex: 2;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .notificacionesPanal button:hover {
   background-color: var(--btnHover);
 }
 .notificacionesPanal button:active {
-  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+     -moz-transform: scale(1.025);
+      -ms-transform: scale(1.025);
+       -o-transform: scale(1.025);
+          transform: scale(1.025);
 }
 /*ver notif prof*/
 .contendorNotificacionesA {
-  flex: 2;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   margin: 10px 20px 20px 10px;
 }
 /*4ta parte edit notif prof*/
 .notification-config {
-  user-select: all;
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
   pointer-events: all;
 }
 .notification-action-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 20px;
   padding: 10px;
   margin-left: 10px;
   border: none;
-  border-radius: 50%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
   cursor: pointer;
   background-color: var(--btn);
   color: var(--Bcolor);
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .notification-action-btn i {
@@ -3080,18 +3522,36 @@ textarea {
 }
 .notification-action-btn:hover {
   background-color: var(--btnHover);
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+     -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+       -o-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .notification-action-btn:active {
-  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+     -moz-transform: scale(1.025);
+      -ms-transform: scale(1.025);
+       -o-transform: scale(1.025);
+          transform: scale(1.025);
 }
 /************************************************************/
 /************************************************************/
 /************************************************************/
 /*notas/calificaciones del profe*/
 .seccionAlumnosCalificaciones {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 40%;
 }
 .seccionAlumnosCalificaciones h2 {
@@ -3120,40 +3580,78 @@ textarea {
   background-color: var(--btnHover);
 }
 .btnsFiltrosCalificaciones {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 10px;
 }
 .btnsFiltrosCalificaciones button, .listaDeEstudiantes button {
   background-color: var(--btn);
   color: var(--Bcolor);
   border: none;
-  border-radius: 6px;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
   padding: 6px 20px;
-  flex: 2;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   margin: 0 10px;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .btnsFiltrosCalificaciones button:hover, .listaDeEstudiantes button:hover {
   background-color: var(--btnHover);
 }
 .btnsFiltrosCalificaciones button:active, .listaDeEstudiantes button:active {
-  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+     -moz-transform: scale(1.025);
+      -ms-transform: scale(1.025);
+       -o-transform: scale(1.025);
+          transform: scale(1.025);
 }
 /*Lista de pibes*/
 .listaDeEstudiantes { 
   margin: 0 10px;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 #students {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 5px;
   max-height: 60vh;
   overflow-y: auto;
 }
 #students button {
+  width: -webkit-calc(100% - 20px);
+  width: -moz-calc(100% - 20px);
   width: calc(100% - 20px);
   text-align: left;
 }
@@ -3166,13 +3664,29 @@ textarea {
 /*establecer notas/calificaciones*/
 .seccionEstablecerCalificacion {
   
-  flex: 2;
+  -webkit-box-flex: 2;
+  
+  -webkit-flex: 2;
+  
+     -moz-box-flex: 2;
+  
+      -ms-flex: 2;
+  
+          flex: 2;
 }
 #studentDetails {display: none;}
 .studentFarg1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 15px 15px 10px 0;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
 }
 .studentFarg1 h2 {
@@ -3183,7 +3697,8 @@ textarea {
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   margin-left: 10px;
 }
 .close-button {
@@ -3230,12 +3745,25 @@ textarea {
   background-color: rgb(98, 105, 149, 0.4);
 }
 .studentFarg2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0;
 }
 .studentFarg2 h3, .studentFarg3 h3, .studentFarg4 h3 {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 20px 15px 5px;
 }
 .studentFarg2 ul, .studentFarg3 ul, .studentFarg4 ul {
@@ -3246,36 +3774,79 @@ textarea {
   background-color: var(--btn);
   color: var(--Bcolor);
   border: none;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
   padding: 4px 36px;
   margin: 0 0 0 40px;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .studentFarg2 ul li button:hover, .studentFrag4Sub button:hover {
   background-color: var(--btnHover);
 }
 .studentFarg2 ul li button:active, .studentFrag4Sub button:active {
-  transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+     -moz-transform: scale(1.025);
+      -ms-transform: scale(1.025);
+       -o-transform: scale(1.025);
+          transform: scale(1.025);
 }
 .studentFarg3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0;
 }
 .studentFarg4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0;
 }
 .studentFrag4Sub {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin: 10px 15px 5px;
   gap: 15px;
 }
 .studentFrag4Sub button {
-  flex: 2;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   margin: 0;
 }
 /************************************************************/
@@ -3407,7 +3978,11 @@ textarea {
   .seccionCursoMateria {
     position: relative;
     width: 260px;
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+       -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+         -o-transform: translateX(0);
+            transform: translateX(0);
     margin: 0 auto;
   }
   .expandirSubHeader {
@@ -3417,16 +3992,39 @@ textarea {
     background-color: var(--Qcolor);
     width: 175px;
   }
+  .seleccionar ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .contenidoSubirNotificaciones {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .formularioNotificaciones {
+    width: -webkit-calc(100% - 40px);
+    width: -moz-calc(100% - 40px);
     width: calc(100% - 40px);
     height: auto;
     margin: 0 20px 40px;
   } 
   .notificacionesPanal {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     gap: 10px;
   }
   .contendorNotificacionesA {
@@ -3434,7 +4032,11 @@ textarea {
   }
   .formularioNotificaciones form textarea {
     resize: vertical;
-    flex: none;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+       -moz-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
     min-height: 100px;
     height: 250px;
     max-height: 400px;
@@ -3506,7 +4108,13 @@ textarea {
     width: 100%;
   }
   .studentFrag4Sub {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-bottom: 40px;
   }
 }
