@@ -46,84 +46,127 @@
                     </div>
             </details>
             <div id="studentList" class="listaDeEstudiantes">
+                <button id="addStudent"><img src="../img/gestionUser/agregarUsuario.png" class="iconsHeader" alt="NewUser"> Agregar Estudiante</button>
                 <div id="students"></div>
-                <button id="addStudent">Agregar Estudiante</button>
             </div>
         </section>
+
         <section class="seccionEstablecerCalificacion">
             <div id="studentDetails">
-                <h2 id="studentName"><span class="close-button">✖</span></h2>
-                <div id="averages">
-                    <p>Promedio General: <span id="generalAvg"></span></p>
-                    <p>Promedio de Asistencia: <span id="attendanceAvg"></span></p>
-                    <p>Promedio de Nota: <span id="gradeAvg"></span></p>
-                    <p>Promedio de Conducta: <span id="behaviorAvg"></span> <button id="changeBehavior">Cambiar</button></p>
+                <div class="studentFarg1">
+                    <h2 id="studentName"></h2>
+                    <span class="close-button">✖</span>
                 </div>
-                <div id="reportCard">
-                    <h3>Boletín</h3>
-                    <div id="firstQuarter"></div>
-                    <div id="secondQuarter"></div>
-                    <div id="finalGrade"></div>
+                <div class="studentFarg2" id="averages">
+                    <h3>Promedios:</h3>
+                    <ul>
+                        <li><b>General:</b> <span id="generalAvg"></span></li>
+                        <li><b>Asistencia:</b> <span id="attendanceAvg"></span></li>
+                        <li><b>Nota:</b> <span id="gradeAvg"></span></li>
+                        <li><b>Conducta:</b> <span id="behaviorAvg"></span> <button id="changeBehavior">Cambiar</button></li>
+                    </ul>
                 </div>
-                <h3>Notas de Modelos y Sistemas</h3>
-                <ul id="grades"></ul>
-                <button id="addGrade">Agregar Calificación</button>
-                <button id="addReportCardGrade">Agregar Nota de Boletín</button>
+                <div class="studentFarg3" id="reportCard">
+                    <h3>Boletín:</h3>
+                    <ul>
+                        <li id="firstQuarter"></li>
+                        <li id="secondQuarter"></li>
+                        <li id="finalGrade"></li>
+                    </ul>
+                </div>
+                <div class="studentFarg4">
+                    <h3>Notas de Modelos y Sistemas</h3>
+                    <ul id="grades"></ul>
+                    <div class="studentFrag4Sub">
+                        <button id="addGrade">Agregar Calificación</button>
+                        <button id="addReportCardGrade">Agregar Nota de Boletín</button>
+                    </div>
+                </div>         
             </div>
         </section>
 
-
-        <div id="gradeModal" class="modal">
-            <div class="modal-content">
-                <h2>Agregar Calificación</h2>
-                <select id="gradeType">
-                    <option value="carpeta">Carpeta</option>
-                    <option value="tp">TP</option>
-                    <option value="act">Actividad</option>
-                    <option value="oral">Oral</option>
-                    <option value="exposicion">Exposición</option>
-                    <option value="examen">Examen</option>
-                    <option value="otro">Otro</option>
-                </select>
-                <input type="text" id="otherGradeType" style="display: none;" placeholder="Especificar otro tipo">
-                <input type="number" id="gradeValue" min="1" max="10" step="0.5">
-                <button id="submitGrade">Agregar</button>
-                <button id="cancelGrade">Cancelar</button>
+        <div class="modal oculto" id="gradeModal">
+            <div class="modalContenido">
+                <div class="modalPart1">
+                    <h2>Agregar Calificación</h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
+                <div class="modalPart2ProfNotas">
+                    <div class="modalPart2ProfNotasSub">
+                        <select id="gradeType">
+                            <option value="carpeta">Carpeta</option>
+                            <option value="tp">TP</option>
+                            <option value="act">Actividad</option>
+                            <option value="oral">Oral</option>
+                            <option value="exposicion">Exposición</option>
+                            <option value="examen">Examen</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <input type="text" id="otherGradeType" style="display: none;" placeholder="Especificar otro tipo">
+                    </div>
+                    <input type="number" id="gradeValue" min="1" max="10" step="0.5" placeholder="Nota">
+                    <input type="text" id="gradeDescription" maxlength="100" placeholder="Descriopcion. Max 100 caracteres">
+                </div>
+                <div class="modalPartBtns">
+                    <button id="submitGrade">Agregar</button>
+                    <button class="cerrarModals" id="cancelGrade">Cancelar</button>
+                </div>
             </div>
         </div>
-    
-        <div id="reportCardModal" class="modal">
-            <div class="modal-content">
-                <h2>Agregar Nota de Boletín</h2>
-                <select id="quarter">
-                    <option value="1">1er Cuatrimestre</option>
-                    <option value="2">2do Cuatrimestre</option>
-                </select>
-                <select id="reportCardGrade">
-                    <option value="TEA">TEA</option>
-                    <option value="TEP">TEP</option>
-                    <option value="TED">TED</option>
-                </select>
-                <button id="submitReportCardGrade">Agregar</button>
-                <button id="cancelReportCardGrade">Cancelar</button>
+
+        <div id="reportCardModal" class="modal oculto">
+            <div class="modalContenido">
+                <div class="modalPart1">
+                    <h2>Agregar Nota de Boletín</h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
+                <div class="modalPart2ProfNotas">
+                    <select id="quarter">
+                        <option value="1">1er Cuatrimestre</option>
+                        <option value="2">2do Cuatrimestre</option>
+                    </select>
+                    <select id="reportCardGrade">
+                        <option value="TEA">TEA</option>
+                        <option value="TEP">TEP</option>
+                        <option value="TED">TED</option>
+                    </select>
+                </div>
+                <div class="modalPartBtns">
+                    <button id="submitReportCardGrade">Agregar</button>
+                    <button class="cerrarModals" id="cancelReportCardGrade">Cancelar</button>
+                </div>
             </div>
         </div>
     
         <div id="finalGradeModal" class="modal">
-            <div class="modal-content">
-                <h2>Establecer Nota Final</h2>
-                <input type="number" id="finalGradeValue" min="1" max="10" step="0.5" value="7">
-                <button id="submitFinalGrade">Establecer</button>
-                <button id="cancelFinalGrade">Cancelar</button>
+            <div class="modalContenido">
+                <div class="modalPart1">
+                    <h2>Establecer Nota Final</h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
+                <div class="modalPart2ProfNotas">
+                    <input type="number" id="finalGradeValue" min="1" max="10" step="0.5" value="7">
+                </div>
+                <div class="modalPartBtns">
+                    <button id="submitFinalGrade">Establecer</button>
+                    <button class="cerrarModals" id="cancelFinalGrade">Cancelar</button>
+                </div> 
             </div>
         </div>
     
         <div id="behaviorModal" class="modal">
-            <div class="modal-content">
-                <h2>Cambiar Promedio de Conducta</h2>
-                <input type="number" id="behaviorValue" min="1" max="10" step="0.5">
-                <button id="submitBehavior">Cambiar</button>
-                <button id="cancelBehavior">Cancelar</button>
+            <div class="modalContenido">
+                <div class="modalPart1">
+                    <h2>Cambiar Promedio de Conducta</h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
+                <div class="modalPart2ProfNotas">
+                    <input type="number" id="behaviorValue" min="1" max="10" step="0.5">
+                </div>
+                <div class="modalPartBtns">
+                    <button id="submitBehavior">Cambiar</button>
+                    <button id="cancelBehavior">Cancelar</button>
+                </div> 
             </div>
         </div>
     </main>

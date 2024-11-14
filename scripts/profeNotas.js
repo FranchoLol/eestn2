@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: name,
                 attendance: Array(5).fill().map(() => ({ value: randomGrade(6.5, 10) })),
                 grades: [
-                    { date: '08/11', type: 'Carpeta', value: 8 },
-                    { date: '10/08', type: 'Defensa del TP8', value: randomGrade(7, 9) },
-                    { date: '22/3', type: 'Exposicion grupal Metodos de estudio', value: Math.floor(randomGrade(5, 10)) }
+                    { date: '22/03/2024', type: 'Exposicion grupal', value: Math.floor(randomGrade(5, 10)), description: 'Metodos de estudio'}, 
+                    { date: '10/08/2024', type: 'Oral', value: randomGrade(7, 9), description: 'Defensa del TP8' },
+                    { date: '08/11/2024', type: 'Carpeta', value: randomGrade(5, 9), description: '' }
                 ],
                 behavior: Array(5).fill().map(() => ({ value: randomGrade(6.5, 10) })),
                 reportCard: {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderStudentDetails() {
         if (!currentStudent) return;
 
-        document.getElementById('studentName').innerHTML = `${currentStudent.name} <span class="close-button">✖</span>`;
+        document.getElementById('studentName').innerHTML = `${currentStudent.name}`;
         const attendanceAvg = calculateAverage(currentStudent.attendance);
         const gradeAvg = calculateAverage(currentStudent.grades);
         const behaviorAvg = calculateAverage(currentStudent.behavior);
@@ -88,21 +88,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondQuarter = document.getElementById('secondQuarter');
         const finalGrade = document.getElementById('finalGrade');
 
-        firstQuarter.innerHTML = `1er Cuatrimestre: ${currentStudent.reportCard.firstQuarter}`;
-        if (currentStudent.reportCard.firstQuarter === 'TEP') {
+        firstQuarter.innerHTML = `<b>1<sup>er</sup> Cuatrimestre:</b> ${currentStudent.reportCard.firstQuarter}`;
+        if (currentStudent.reportCard.firstQuarter === 'TEP' || currentStudent.reportCard.firstQuarter === 'TED') {
             firstQuarter.innerHTML += ' <button class="compensationBtn" data-quarter="1">Compensación</button>';
         }
 
-        secondQuarter.innerHTML = `2do Cuatrimestre: ${currentStudent.reportCard.secondQuarter || 'No establecido'}`;
-        if (currentStudent.reportCard.secondQuarter === 'TEP') {
+        secondQuarter.innerHTML = `<b>2<sup>do</sup> Cuatrimestre:</b> ${currentStudent.reportCard.secondQuarter || 'No establecido'}`;
+        if (currentStudent.reportCard.secondQuarter === 'TEP' || currentStudent.reportCard.secondQuarter === 'TED') {
             secondQuarter.innerHTML += ' <button class="compensationBtn" data-quarter="2">Compensación</button>';
         }
 
         if (currentStudent.reportCard.firstQuarter && currentStudent.reportCard.secondQuarter) {
             if (currentStudent.reportCard.finalGrade) {
-                finalGrade.textContent = `Nota Final: ${currentStudent.reportCard.finalGrade}`;
+                finalGrade.innerHTML = `<b>Nota Final:</b> ${currentStudent.reportCard.finalGrade}`;
             } else {
-                finalGrade.innerHTML = `Nota Final: No establecida <button id="setFinalGradeBtn">Establecer</button>`;
+                finalGrade.innerHTML = `<b>Nota Final:</b> No establecida <button id="setFinalGradeBtn">Establecer</button>`;
             }
         } else {
             finalGrade.textContent = '';
@@ -115,9 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderGrades() {
         const gradesList = document.getElementById('grades');
         gradesList.innerHTML = currentStudent.grades.map(grade => 
-            `<li>${grade.date} - ${grade.type}: ${grade.value}</li>`
+            `<li>${grade.date} - ${grade.type}: ${grade.value} - ${grade.description || 'Sin descripción'}</li>`
         ).join('');
     }
+    
 
     function calculateAverage(array) {
         return array.reduce((sum, item) => sum + item.value, 0) / array.length;
@@ -190,11 +191,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('submitGrade').addEventListener('click', () => {
         const type = document.getElementById('gradeType').value;
         const value = parseFloat(document.getElementById('gradeValue').value);
+        const description = document.getElementById('gradeDescription').value.trim();
+
+        if (!description) {
+            alert('La descripción es obligatoria. Por favor, ingrese una descripción válida.');
+            return; 
+        }
+
         if (type && value && value >= 1 && value <= 10) {
             currentStudent.grades.push({
                 date: new Date().toLocaleDateString('es-AR'),
                 type: type === 'otro' ? document.getElementById('otherGradeType').value : type,
-                value: Math.round(value * 2) / 2
+                value: Math.round(value * 2) / 2,
+                description: description
             });
             renderGrades();
             renderStudentDetails();
@@ -241,19 +250,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-        document.querySelectorAll(`#${modalId} input`).forEach(input => input.value = '');
-        document.querySelectorAll(`#${modalId} select`).forEach(select => select.selectedIndex = 0);
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'none';
+        modal.querySelectorAll('input').forEach(input => input.value = '');
+        modal.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
     }
-
+    
+    
     ['gradeModal', 'reportCardModal', 'finalGradeModal', 'behaviorModal'].forEach(modalId => {
         const modal = document.getElementById(modalId);
-        const closeBtn = modal.querySelector('.close-button');
-        const cancelBtn = modal.querySelector('button[id^="cancel"]');
+    
+        // Selecciona todos los elementos con la clase cerrarModals dentro del modal
+        const closeButtons = modal.querySelectorAll('.cerrarModals');
         
-        if (closeBtn) closeBtn.addEventListener('click', () => closeModal(modalId));
-        if (cancelBtn) cancelBtn.addEventListener('click', () => closeModal(modalId));
+        // Agrega el evento click a cada elemento con la clase cerrarModals
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => closeModal(modalId));
+        });
     });
+    
 
     document.getElementById('students').addEventListener('contextmenu', (e) => {
         e.preventDefault();
