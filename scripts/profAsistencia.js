@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isBlockedMonth = currentMonth === 0 || currentMonth === 1;
     
         // Generar cabecera de fechas con una columna por cada día del mes
-        bulkActions.innerHTML = '<th style="text-align: left; padding-left: 20px;">Todos Presentes</th>';
-        bulkAbsent.innerHTML = '<th style="text-align: left; padding-left: 20px;">Todos Ausentes</th>';
-        dateRow.innerHTML = '<th style="text-align: left; padding-left: 20px;">Fecha</th>';
+        bulkActions.innerHTML = '<th colspan="2" style="text-align: left; padding-left: 20px;">Todos Presentes</th>';
+        bulkAbsent.innerHTML = '<th colspan="2" style="text-align: left; padding-left: 20px;">Todos Ausentes</th>';
+        dateRow.innerHTML = '<th colspan="2" style="text-align: left; padding-left: 20px;">Fecha</th>';
     
         const dayInitials = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
     
@@ -96,13 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
         // Generar filas para cada estudiante
         studentsBody.innerHTML = students.map((student, index) => {
-            let row = `<tr><td>${index + 1}. ${student.name}</td>`;
+            let row = `<tr>
+                <td style="width: 30px; text-align: right; padding-right: 10px;">${index + 1}.</td>
+                <td style="text-align: left; padding-left: 10px;">${student.name}</td>`;
     
             for (let i = 1; i <= daysInMonth; i++) {
                 const date = new Date(currentYear, currentMonth, i);
                 const isWeekend = date.getDay() === 0 || date.getDay() === 6;
                 const isFriday = date.getDay() === 5;
-                const dateString = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`; 
+                const dateString = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
                 let attendance = student.attendance[dateString] || '';
     
                 const isEditable = !isBlockedMonth && isCurrentMonth && isFriday;

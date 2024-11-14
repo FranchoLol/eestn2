@@ -2347,7 +2347,6 @@ main {
   border: 2px solid var(--Scolor);
 }
 
-
 /*btns de modals*/
 .modalPartBtns {
   display: flex;
@@ -2467,6 +2466,370 @@ main {
     padding: 8px 20px;
   }
 }
+/*asistencias prof*/
+.seccionTomaAsistenciaProf {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 15px 20px 40px;
+}
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+.mesSelecAsistencia {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  user-select: none;
+}
+.mesSelecAsistencia select {
+  width: 240px;
+}
+.controls button {
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  border: none;
+  padding: 10px 40px;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.controls button:hover {
+  background-color: var(--btnHover);
+}
+.controls button:active {
+  transform: scale(1.025);
+}
+/*calndario asistencia prof*/
+.tablaMobileResponzive {
+  width: 100%;
+  overflow-x: auto;
+  max-width: 100vw;
+}
+.tablaAsistenciasDelProfe {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 25px;
+}
+.tablaAsistenciasDelProfe th, td {
+  border: 2px solid var(--Scolor);
+  text-align: center;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tablaAsistenciasDelProfe th {
+  background-color: var(--Scolor);
+  color: var(--Bcolor);
+  user-select: none;
+}
+.tablaAsistenciasDelProfe tr:nth-child(odd):nth-child(n) {
+  background-color: #d1d1d1;
+}
+.tablaAsistenciasDelProfe tr td:nth-child(2) {
+    flex: 1;
+}
+.tablaAsistenciasDelProfe tr td:nth-child(1) {
+  user-select: none;
+}
+
+.tablaAsistenciasDelProfe .weekend {
+  background-color: var(--texto);
+}
+.bulk-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bulk-action input {
+  margin: 0 2px;
+}
+.tablaAsistenciasDelProfe .disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.tablaAsistenciasDelProfe .present { color: green; }
+.tablaAsistenciasDelProfe .late { color: blue; }
+.tablaAsistenciasDelProfe .absent { color: red; }
+@media screen and (width < 800px) {
+  .tablaAsistenciasDelProfe th, td {
+    width: 400px;
+    height: 30px;
+  }
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+  }
+}
+/***************************/
+/***************************/
+/***************************/
+/*biblioiteca profe*/
+.seccionBibliotecaProfe {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+/*seleccion de materiales*/
+.profBibliotecaMaterials {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  
+}
+.profBibliotecaMaterials h2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0 15px 10px;
+}
+.panalDeBliotecaProf {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  margin: 0 10px 20px 20px;
+  user-select: none;
+}
+#profBibliotecaMaterialsList {
+  max-height: 65vh;
+  overflow-y: auto;
+}
+/*btns de trabajos*/
+.profBibliotecaBtn {
+  display: block;
+  width: calc(100% - 10px);
+  padding: 8px 24px;
+  margin-bottom: 10px;
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color .3s ease;
+}
+.profBibliotecaBtn:hover {
+  background-color: var(--btnHover);
+}
+.profBibliotecaBtn.active {
+  transform: scale(1.025);
+}
+/*btn new job*/
+.profBibliotecaAddMaterial {
+  background-color: #28a745;
+}
+.profBibliotecaAddMaterial:hover {
+  background-color: #218838;
+}
+/**/
+.profBibliotecaMaterialDetails {
+  flex: 1;
+}
+.profBibliotecaContenedorActividades {
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.profBibliotecaFrag1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+.profBibliotecaFrag1 h2 {
+  margin: 0;
+}
+.profBibliotecaFrag1 button {
+  border: none;
+  background-color: var(--btn);
+  color: var(--Bcolor);
+  padding: 4px 8px;
+  font-size: 25pt;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+.profBibliotecaFrag1 button:hover {
+  background-color: var(--btnHover);
+}
+.profBibliotecaFrag2 {
+  margin: 0;
+}
+.profBibliotecaFrag2 p {
+  margin: 0;
+  font-size: 10pt;
+}
+.profBibliotecaFrag3 {
+  margin: 20px 5px;
+}
+.profBibliotecaFrag3 p {
+  margin: 0 0 15px;
+}
+.profBibliotecaFrag3 a, .profBibliotecaStudentItem a {
+  background-color: #fff;
+  max-width: 260px;
+  min-height: 60px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  color: var(--texto);
+  text-decoration: none;
+  margin-left: 30px;
+  border: 2px solid #444;
+  background-color: #e0e0e0;
+  -webkit-box-shadow: 0 0 5px 0 #bbb;
+     -moz-box-shadow: 0 0 5px 0 #bbb;
+          box-shadow: 0 0 5px 0 #bbb;
+}
+.profBibliotecaStudentItem a {
+  white-space: wrap;
+  hyphens: auto;
+  margin: 10px 0 0 0;
+}
+.profBibliotecaFrag3 a img, .profBibliotecaStudentItem a img {
+  width: 60px;
+  -webkit-border-radius: 10px 0 0 10px;
+     -moz-border-radius: 10px 0 0 10px;
+          border-radius: 10px 0 0 10px;
+  border-right: 2px solid #444;
+}
+.profBibliotecaFrag3 a span{
+  margin: 6px 12px;
+}
+.profBibliotecaFrag4 {
+  border-top: 3px solid var(--Scolor);
+  margin: 0;
+}
+.profBibliotecaFrag4 h4 {
+  margin: 15px 15px 20px;
+}
+#profBibliotecaStudentList {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.profBibliotecaStudentItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/*btns de  editar biblioteca prof*/
+.profBibliotecaConfigBtn {
+  background-color: #ffc107;
+  color: #000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.profBibliotecaConfigBtn:hover {
+  background-color: #ffc926;
+}
+/**/
+#profBibliotecaNewMaterialForm,
+#profBibliotecaConfigForm {
+  margin: 20px 30px 20px 10px;
+}
+.profBibliotecaFormGroup {
+  margin-bottom: 10px;
+}
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+input[type="text"], input[type="date"], input[type="time"], textarea {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid var(--Scolor);
+  outline: none;
+  border-radius: 4px;
+}
+
+.dateTimeContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.dateTimeContainer input[type="date"],
+.dateTimeContainer input[type="time"] {
+  flex: 1;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.profBibliotecaFileUpload {
+  border: 2px dashed #bbb;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.profBibliotecaSubmitBtn,
+.profBibliotecaCancelBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.profBibliotecaSubmitBtn {
+  background-color: #007bff;
+}
+
+.profBibliotecaSubmitBtn:hover {
+  background-color: #0056b3;
+}
+
+.profBibliotecaCancelBtn {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+.profBibliotecaCancelBtn:hover {
+  background-color: #c82333;
+}
+
+.profBibliotecaStudentItem {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+
 
 
 

@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
             dueDate: '30/11/2024',
             dueTime: '23:59',
             description: 'Desarrollar prototipos de interfaz de usuario para una aplicación móvil de gestión de tareas. El trabajo debe incluir wireframes de baja fidelidad y al menos un prototipo de alta fidelidad. Justificar las decisiones de diseño basándose en principios de UX/UI.',
-            attachmentUrl: '../pdf/Archivo-adjuntado-4.pdf',
-            attachmentPreview: '../img/previstaPDF/archivoAdjuntado4.png',
+            attachmentUrl: '../pdf/Archivo-adjuntado-3.pdf',
+            attachmentPreview: '../img/previstaPDF/archivoAdjuntado3.png',
             students: []
         }
     ];
@@ -50,19 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
         materialContent.innerHTML = `
             <div class="profBibliotecaContenedorActividades">
                 <div class="profBibliotecaFrag1">
-                    <h3 id="tituloActividad">${material.title}</h3>
+                    <h2 id="tituloActividad">${material.title}</h2>
                     <button id="profBibliotecaClose"><i class="fas fa-times"></i></button>
                 </div>
                 <div class="profBibliotecaFrag2">
-                    <p>Fecha y hora de publicación: ${material.publishDate} ${material.publishTime}</p>
-                    ${material.dueDate ? `<p>Fecha y hora de entrega: ${material.dueDate} ${material.dueTime}</p>` : ''}
+                    <p>Publicado: ${material.publishDate} ${material.publishTime}</p>
+                    ${material.dueDate ? `<p>Entrega: ${material.dueDate} ${material.dueTime || ''}</p>` : ''}
                 </div>
                 <div class="profBibliotecaFrag3">
                     <p>${material.description}</p>
-                    <a href="${material.attachmentUrl}" target="_blank">
-                        <img src="${material.attachmentPreview}" alt="PDF Preview">
-                        <span>Archivo adjunto <br> <span>PDF</span></span>
-                    </a>
+                    ${material.attachmentUrl ? `
+                        <a href="${material.attachmentUrl}" target="_blank">
+                            <img src="../img/previstaPDF/archivoAdjuntado3.png" alt="PDF Preview">
+                            <span>Archivo adjunto <br> <span>PDF</span></span>
+                        </a>
+                    ` : ''}
                 </div>
                 <div class="profBibliotecaFrag4">
                     <h4>Estudiantes que entregaron:</h4>
@@ -80,7 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const randomStudents = getRandomStudents(students, 5);
                 studentList.innerHTML = randomStudents.map(student => `
                     <div class="profBibliotecaStudentItem">
-                        ${student} - <a href="#" onclick="simulateFileDownload('${student}'); return false;">Ver archivo</a>
+                        ${student}
+                        <br>
+                        <a href="#" onclick="simulateFileDownload('${student}'); return false;"><img src="../img/previstaPDF/archivoAdjuntado3.png" alt="PDF Preview"><span>Tp de ${student}</a>
                     </div>
                 `).join('');
             })
@@ -103,12 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <input type="text" id="title" value="${material.title}" required>
                 </div>
                 <div class="profBibliotecaFormGroup">
-                    <label for="dueDate">Fecha de entrega:</label>
-                    <input type="date" id="dueDate" value="${material.dueDate}" ${material.dueDate ? 'required' : ''}>
-                </div>
-                <div class="profBibliotecaFormGroup">
-                    <label for="dueTime">Hora de entrega:</label>
-                    <input type="time" id="dueTime" value="${material.dueTime}" ${material.dueTime ? 'required' : ''}>
+                    <label for="dueDate">Fecha y hora de entrega (opcional):</label>
+                    <div class="dateTimeContainer">
+                        <input type="date" id="dueDate" value="${material.dueDate ? formatDateForInput(material.dueDate) : ''}">
+                        <input type="time" id="dueTime" value="${material.dueTime || ''}">
+                    </div>
                 </div>
                 <div class="profBibliotecaFormGroup">
                     <label for="description">Descripción:</label>
@@ -118,37 +121,77 @@ document.addEventListener('DOMContentLoaded', () => {
                     <label for="fileUpload">Actualizar archivo adjunto:</label>
                     <div class="profBibliotecaFileUpload" id="fileUpload">
                         Arrastra un archivo aquí o haz clic para seleccionar
-                        <input type="file" style="display: none;">
+                        <input type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.bin" style="display: none;">
                     </div>
                 </div>
                 <button type="submit" class="profBibliotecaSubmitBtn">Guardar cambios</button>
                 <button type="button" class="profBibliotecaCancelBtn">Cancelar</button>
             </form>
         `;
-
+    
         const form = document.getElementById('profBibliotecaConfigForm');
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const updatedMaterial = {
                 ...material,
                 title: document.getElementById('title').value,
-                dueDate: document.getElementById('dueDate').value,
-                dueTime: document.getElementById('dueTime').value,
+                dueDate: document.getElementById('dueDate').value ? formatDateFromInput(document.getElementById('dueDate').value) : null,
+                dueTime: document.getElementById('dueTime').value || null,
                 description: document.getElementById('description').value,
             };
-
+    
             const index = materials.findIndex(m => m.id === material.id);
             if (index !== -1) {
                 materials[index] = updatedMaterial;
             }
-
+    
             renderMaterials();
             renderMaterialDetails(updatedMaterial);
         });
-
+    
         document.querySelector('.profBibliotecaCancelBtn').addEventListener('click', () => {
             renderMaterialDetails(material);
         });
+    
+        // Simulación de arrastrado de archivos
+        const fileUpload = document.getElementById('fileUpload');
+        fileUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUpload.classList.add('dragover');
+        });
+    
+        fileUpload.addEventListener('dragleave', () => {
+            fileUpload.classList.remove('dragover');
+        });
+    
+        fileUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUpload.classList.remove('dragover');
+            // Aquí se simularía la carga del archivo
+            alert('Archivo adjuntado (simulación)');
+        });
+    
+        fileUpload.addEventListener('click', () => {
+            fileUpload.querySelector('input[type="file"]').click();
+        });
+    
+        fileUpload.querySelector('input[type="file"]').addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                alert(`Archivo "${e.target.files[0].name}" adjuntado (simulación)`);
+            }
+        });
+    }
+    
+    // Función auxiliar para formatear la fecha para el input de tipo date
+    function formatDateForInput(dateString) {
+        const [day, month, year] = dateString.split('/');
+        return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    }
+    
+    // Función auxiliar para formatear la fecha desde el input de tipo date
+    function formatDateFromInput(dateString) {
+        const [year, month, day] = dateString.split('-');
+        return `${day}/${month}/${year}`;
     }
 
     function getRandomStudents(students, count) {
@@ -169,20 +212,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         <input type="text" id="title" required>
                     </div>
                     <div class="profBibliotecaFormGroup">
-                        <label for="publishDate">Fecha de publicación:</label>
-                        <input type="date" id="publishDate" required>
+                        <label for="publishDate">Fecha y hora de publicación (dejar en blanco para publicar ahora):</label>
+                        <div class="dateTimeContainer">
+                            <input type="date" id="publishDate">
+                            <input type="time" id="publishTime">
+                        </div>
                     </div>
                     <div class="profBibliotecaFormGroup">
-                        <label for="publishTime">Hora de publicación:</label>
-                        <input type="time" id="publishTime" required>
-                    </div>
-                    <div class="profBibliotecaFormGroup">
-                        <label for="dueDate">Fecha de entrega (opcional):</label>
-                        <input type="date" id="dueDate">
-                    </div>
-                    <div class="profBibliotecaFormGroup">
-                        <label for="dueTime">Hora de entrega (opcional):</label>
-                        <input type="time" id="dueTime">
+                        <label for="dueDate">Fecha y hora de entrega (opcional):</label>
+                        <div class="dateTimeContainer">
+                            <input type="date" id="dueDate">
+                            <input type="time" id="dueTime">
+                        </div>
                     </div>
                     <div class="profBibliotecaFormGroup">
                         <label for="description">Descripción:</label>
@@ -192,30 +233,43 @@ document.addEventListener('DOMContentLoaded', () => {
                         <label for="fileUpload">Archivo adjunto:</label>
                         <div class="profBibliotecaFileUpload" id="fileUpload">
                             Arrastra un archivo aquí o haz clic para seleccionar
-                            <input type="file" style="display: none;">
+                            <input type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.bin" style="display: none;">
                         </div>
                     </div>
                     <button type="submit" class="profBibliotecaSubmitBtn">Publicar</button>
                 </form>
             `;
-
+    
             const form = document.getElementById('profBibliotecaNewMaterialForm');
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const now = new Date();
-                const publishDate = new Date(document.getElementById('publishDate').value + 'T' + document.getElementById('publishTime').value);
-                const dueDate = document.getElementById('dueDate').value ? new Date(document.getElementById('dueDate').value + 'T' + (document.getElementById('dueTime').value || '23:59')) : null;
-
-                if (publishDate < now) {
-                    alert('La fecha y hora de publicación no puede ser en el pasado.');
-                    return;
+                const publishDateInput = document.getElementById('publishDate').value;
+                const publishTimeInput = document.getElementById('publishTime').value;
+                let publishDate;
+    
+                if (publishDateInput && publishTimeInput) {
+                    publishDate = new Date(publishDateInput + 'T' + publishTimeInput);
+                    if (publishDate < now) {
+                        alert('La fecha y hora de publicación no puede ser en el pasado.');
+                        return;
+                    }
+                } else {
+                    publishDate = now;
                 }
-
-                if (dueDate && dueDate < publishDate) {
-                    alert('La fecha y hora de entrega debe ser posterior a la fecha y hora de publicación.');
-                    return;
+    
+                const dueDateInput = document.getElementById('dueDate').value;
+                const dueTimeInput = document.getElementById('dueTime').value;
+                let dueDate = null;
+    
+                if (dueDateInput && dueTimeInput) {
+                    dueDate = new Date(dueDateInput + 'T' + dueTimeInput);
+                    if (dueDate < publishDate) {
+                        alert('La fecha y hora de entrega debe ser posterior a la fecha y hora de publicación.');
+                        return;
+                    }
                 }
-
+    
                 const newMaterial = {
                     id: Date.now(),
                     title: document.getElementById('title').value,
@@ -228,20 +282,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     attachmentPreview: '../img/previstaPDF/default.png',
                     students: []
                 };
-
+    
                 materials.unshift(newMaterial);
                 renderMaterials();
                 renderMaterialDetails(newMaterial);
+            });
+    
+            // Simulación de arrastrado de archivos
+            const fileUpload = document.getElementById('fileUpload');
+            fileUpload.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUpload.classList.add('dragover');
+            });
+    
+            fileUpload.addEventListener('dragleave', () => {
+                fileUpload.classList.remove('dragover');
+            });
+    
+            fileUpload.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileUpload.classList.remove('dragover');
+                alert('Archivo adjuntado (simulación)');
+            });
+    
+            fileUpload.addEventListener('click', () => {
+                fileUpload.querySelector('input[type="file"]').click();
+            });
+    
+            fileUpload.querySelector('input[type="file"]').addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    alert(`Archivo "${e.target.files[0].name}" adjuntado (simulación)`);
+                }
             });
         });
     } else {
         console.error('El botón de agregar material no se encontró en el DOM');
     }
-
+    
     function formatDate(date) {
         return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
     }
-
+    
     function formatTime(date) {
         return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
     }

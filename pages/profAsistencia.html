@@ -7,68 +7,6 @@
     <link rel="icon" href="../img/l.png" type="image/png">
     <link rel="stylesheet" href="../styles/web/styleProf.css" type="text/css">
 </head>
-
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    .controls {
-        margin-bottom: 20px;
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    .weekend {
-        background-color: #dbd7d7;
-    }
-    .bulk-action {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .bulk-action input {
-        margin: 0 2px;
-    }
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.4);
-    }
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 500px;
-    }
-    .disabled {
-        opacity: 0.5;
-        pointer-events: none;
-    }
-    .present { color: green; }
-    .late { color: blue; }
-    .absent { color: red; }
-</style>
-
 <body>
     <header id="menuHeader">
         <div class="index">
@@ -93,63 +31,86 @@
             <svg viewBox="0 0 32 32"><path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path><path class="line" d="M7 16 27 16"></path></svg>
         </label>
     </header>
-
     <main>
-        <div class="controls">
-            <label for="monthSelect">Seleccione el mes:</label>
-            <select id="monthSelect"></select>
-            <button id="quickAttendanceBtn">Tomar Asistencia Rápida</button>
-        </div>
-        <table id="attendanceTable">
-            <thead>
-                <tr id="bulkActions">
-                    <th style="text-align: left; padding-left: 20px;">Todos Presente</th>
-                </tr>
-                <tr id="bulkAbsent">
-                    <th style="text-align: left; padding-left: 20px;">Todos Ausente</th>
-                </tr>
-                <tr id="dateRow">
-                    <th style="text-align: left; padding-left: 20px;">Fecha</th>
-                </tr>
-            </thead>
-            <tbody id="studentsBody"></tbody>
-        </table>
+        <section class="seccionTomaAsistenciaProf">
+            <div class="controls">
+                <div class="mesSelecAsistencia">
+                    <label for="monthSelect">Seleccione el mes:</label>
+                    <select id="monthSelect"></select>
+                </div>
+                <button id="quickAttendanceBtn">Tomar Asistencia Rápida</button>
+            </div>
+            
+            <div class="tablaMobileResponzive">
+                <table class="tablaAsistenciasDelProfe" id="attendanceTable">
+                    <thead>
+                        <tr id="bulkActions">
+                            <th style="text-align: left; padding-left: 20px;">Todos Presente</th>
+                        </tr>
+                        <tr id="bulkAbsent">
+                            <th style="text-align: left; padding-left: 20px;">Todos Ausente</th>
+                        </tr>
+                        <tr id="dateRow">
+                            <th style="text-align: left; padding-left: 20px;">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!--asistencia manual-->
         <div id="attendanceModal" class="modal">
-            <div class="modal-content">
-                <h2 id="modalStudentName"></h2>
-                <span class="cerrarModals">✖</span>
-                <p id="modalDate"></p>
-                <button id="presentBtn">Presente</button>
-                <button id="lateBtn">Tarde</button>
-                <button id="absentBtn">Ausente</button>
-                <button id="cancelBtn">Cancelar</button>
-            </div>
-        </div>
-        <div id="dateSelectorModal" class="modal">
-            <div class="modal-content">
+            <div class="modalContenido">
                 <div class="modalPart1">
-                    <h2>Seleccione la fecha para tomar asistencia</h2>
+                    <h2 id="modalStudentName"></h2>
                     <span class="cerrarModals">✖</span>
-            </div>
-                <div id="dateSelector"></div>
+                </div>
+                <div class="modalPart2ProfNotas">
+                    <p id="modalDate"></p>
+                </div>
+                <div class="modalPartBtns">
+                    <button id="presentBtn">Presente</button>
+                    <button id="lateBtn">Tarde</button>
+                    <button id="absentBtn">Ausente</button>
+                    <button id="cancelBtn">Cancelar</button>
+                </div> 
             </div>
         </div>
-        <div id="quickAttendanceModal" class="modal">
-            <div class="modal-content">
+
+        <!--seleccionar dia-->
+        <div id="dateSelectorModal" class="modal">
+            <div class="modalContenido">
                 <div class="modalPart1">
-                <h2 id="quickModalStudentName"></h2>
-                <span class="cerrarModals">✖</span>
+                    <h2>Fecha a tomar asistencia</h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
+                <div class="modalPart2ProfNotas">
+                    
+                </div>
+                <div class="modalPartBtns">
+                    <div id="dateSelector"></div>
+                </div> 
             </div>
-                <p id="quickModalDate"></p>
-                <button id="quickPresentBtn">Presente (P)</button>
+        </div>
+
+        <!--tomar asistencia -->
+        <div id="quickAttendanceModal" class="modal">
+            <div class="modalContenido">
+                <div class="modalPart1">
+                    <h2 id="quickModalStudentName"></h2>
+                    <span class="cerrarModals">✖</span>
+                </div>
+                <div class="modalPart2ProfNotas">
+                    <p id="quickModalDate"></p>
+                </div>
+                <div class="modalPartBtns">
+                    <button id="quickPresentBtn">Presente (P)</button>
                 <button id="quickAbsentBtn">Ausente (A)</button>
+                </div> 
             </div>
         </div>
     </main>
-
-
-
-
     <script src="../scripts/profAsistencia.js"></script>
     <script src="../scripts/Header.js"></script>
 </body>
