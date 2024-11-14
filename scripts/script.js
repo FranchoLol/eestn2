@@ -4,7 +4,8 @@ window.addEventListener('load', () => window.scrollTo(0, 0));
 document.getElementById('loginForm').addEventListener('submit', e => {
     e.preventDefault();
     const username = document.getElementById('username').value.trim().toLowerCase();
-    const pages = { u: 'userMenu', p: 'profMenu', c: 'preceptorMenu', d: 'directorMenu' };
+    //const pages = { u: 'userMenu', p: 'profMenu', c: 'preceptorMenu', d: 'directorMenu' };
+    const pages = { u: 'userMenu', p: 'profMenu'};
     window.location.href = `pages/${pages[username] || 'userMenu'}.html`;
 });
 // ocultar y desocultar la contraseña
